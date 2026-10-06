@@ -1,0 +1,200 @@
+# ADR-003: Institutional Redundancy and Quorum Governance
+
+**Status:** Accepted  
+**Date:** 2026-10-06  
+**Architecture:** FORGE  
+**Decision Type:** Foundational / Governance / Resilience
+
+## Context
+
+A constitutional architecture remains vulnerable if an entire institutional function depends on a single agent, model, process, or instance.
+
+If FORGE has only one Banker, one Teacher, one Engineer, or one other authority-bearing institutional member, failure or compromise of that member can make the institution unavailable or untrustworthy.
+
+A single unavailable member can also create system-wide deadlock.
+
+FORGE therefore distinguishes between an **institution** and the individual members operating within that institution.
+
+## Decision
+
+Authority-bearing FORGE subsystems may operate as multi-member institutions.
+
+Examples include:
+
+- Banker
+- Teacher
+- Engineer
+- Doctor
+- Security
+- Auditor
+- and other jurisdiction-specific institutions.
+
+An institution may contain multiple independently operating members capable of evaluating the same authenticated request.
+
+The institution's decision is determined according to a constitutionally defined quorum and voting threshold appropriate to the risk and jurisdiction involved.
+
+## Institution vs. Member
+
+The constitutional authority belongs to the institution.
+
+It does not belong permanently to an individual member.
+
+For example:
+
+> Banker is the institution.  
+> A banker is a member of that institution.
+
+Failure of one banker therefore does not necessarily mean failure of the Banker institution.
+
+The same model may apply to other FORGE institutions.
+
+## Independent Evaluation
+
+Members should evaluate a request independently before seeing the conclusions of other members.
+
+This reduces:
+
+- conformity pressure,
+- cascading reasoning errors,
+- premature consensus,
+- and influence from another compromised member.
+
+Members produce their findings independently.
+
+Their authenticated findings are then evaluated according to the institution's quorum rules.
+
+## Quorum Governance
+
+Each institution has a constitutionally defined quorum.
+
+For example, an institution containing five eligible members might permit an ordinary decision when at least three valid approvals are obtained.
+
+This example does not establish a universal 3-of-5 rule.
+
+Thresholds are determined according to the institution and risk classification.
+
+Possible thresholds may include:
+
+- simple majority,
+- qualified majority,
+- supermajority,
+- unanimity,
+- or another explicitly defined quorum.
+
+The threshold must be established before the decision being evaluated.
+
+It cannot be lowered dynamically merely to obtain approval.
+
+## Risk-Proportional Thresholds
+
+FORGE may require stronger institutional consensus as potential consequences increase.
+
+A routine low-risk decision may use a normal quorum.
+
+A high-risk decision may require a supermajority.
+
+A constitutional or catastrophic-recovery action may require unanimity where defined by the Constitution.
+
+Therefore:
+
+> Greater authority requires greater agreement.
+
+## Member Unavailability
+
+Failure of an individual member does not automatically disable the institution.
+
+When an eligible member becomes unavailable, a constitutionally designated redundant member may participate according to the institution's membership and quorum rules.
+
+A replacement member receives the authenticated original request and evidence.
+
+It does not inherit the failed member's conclusion.
+
+The replacement evaluates the matter independently.
+
+## Silence Is Not Approval
+
+An unavailable, timed-out, or non-responsive member does not cast an affirmative vote.
+
+FORGE never converts silence into authorization.
+
+If the required quorum cannot be reached, the action does not proceed under that authorization state.
+
+## Disagreement
+
+Institutional disagreement is not necessarily a system failure.
+
+Members may reach different conclusions.
+
+The institutional result is determined using the applicable constitutional voting threshold.
+
+Where a required institution denies a request, the denial cannot simply be ignored by another institution.
+
+A denial may instead produce reasons or constraints that allow a revised request to be submitted through the governed process.
+
+## No Dynamic Rule Manipulation
+
+FORGE cannot change voting rules during an active decision merely because the desired threshold was not reached.
+
+Quorum requirements, eligible membership, and risk classifications must be established independently of the outcome being sought.
+
+Changes to those governance rules follow the appropriate constitutional process.
+
+## Member Diversity
+
+Where practical, FORGE should avoid making redundant members dependent on the same avoidable failure source.
+
+Redundancy is weakened when supposedly independent members share:
+
+- identical mutable state,
+- the same uncontrolled instruction source,
+- a single failure domain,
+- the same writable evidence source,
+- or another mechanism capable of compromising all members simultaneously.
+
+Multiple copies alone do not guarantee independence.
+
+## Watchers
+
+Authority-bearing institutions may have independent Watchers.
+
+The institution being observed cannot control, retrain, disable, or modify the Watchers responsible for observing it.
+
+Watchers provide evidence about institutional behavior without acquiring the institution's authority.
+
+## Auditor Independence
+
+Auditor redundancy follows a related but distinct model.
+
+Auditors independently produce attestations.
+
+They do not deliberate together to become a new governing super-institution.
+
+The calling constitutional process may require a quorum of valid matching attestations.
+
+## Failure Behavior
+
+If enough institutional members fail or become unavailable that the constitutionally required quorum cannot be established, the institution fails closed for the affected consequential action.
+
+Availability does not justify silently reducing constitutional safeguards.
+
+Recovery or degraded operation must follow explicitly defined procedures.
+
+## Consequences
+
+Multi-member institutions increase:
+
+- compute requirements,
+- coordination complexity,
+- latency,
+- operational cost,
+- and governance complexity.
+
+They also reduce dependence on any single authority-bearing model or process.
+
+FORGE accepts this tradeoff because institutional authority should survive individual failure without becoming dependent on unchecked failover authority.
+
+## Foundational Principle
+
+> No individual member is the institution.
+
+FORGE distributes institutional authority across independently evaluated members so that the failure, compromise, or silence of one member does not automatically become the decision of the whole.
