@@ -1,0 +1,237 @@
+# ADR-004: Independent Watchers and Audit Attestations
+
+**Status:** Accepted  
+**Date:** 2026-10-06  
+**Architecture:** FORGE  
+**Decision Type:** Foundational / Verification / Security
+
+## Context
+
+Separation of authorization and execution is insufficient if FORGE must trust the executor, subsystem, or a single observer to truthfully report what occurred.
+
+A compromised subsystem could behave incorrectly while claiming normal operation.
+
+A compromised executor could perform an action different from the action that was authorized.
+
+If the only Watcher responsible for detecting that behavior is also compromised, the executor and Watcher could potentially provide matching false accounts.
+
+FORGE therefore requires independent observation and independent integrity verification.
+
+## Decision
+
+FORGE establishes two separate verification functions:
+
+1. **Watchers** independently observe behavior and outcomes.
+2. **Auditors** independently verify integrity, authorization, and evidence consistency.
+
+Neither function replaces the other.
+
+The architecture intentionally separates:
+
+- deciding what is authorized,
+- performing the action,
+- observing what occurred,
+- and verifying whether the evidence is consistent with the authorized action.
+
+## Independent Watchers
+
+Authority-bearing FORGE institutions may have multiple independent Watchers.
+
+Execution processes may also have independent Watchers.
+
+A Watcher observes behavior but does not inherit the authority of the institution it observes.
+
+A Watcher may produce evidence concerning:
+
+- actions attempted,
+- actions performed,
+- state changes,
+- outputs,
+- timing,
+- policy-relevant events,
+- execution results,
+- and other observable behavior.
+
+## Watcher Independence
+
+A subsystem must not control the Watchers responsible for observing it.
+
+The observed subsystem cannot unilaterally:
+
+- disable its Watchers,
+- retrain its Watchers,
+- rewrite their observations,
+- modify their governing instructions,
+- delete their evidence,
+- or determine what evidence reaches the verification process.
+
+Watcher independence is a constitutional property rather than a convenience.
+
+## Multi-Stage Observation
+
+High-risk actions may require multiple observation stages.
+
+For example:
+
+- one Watcher may observe the attempted action,
+- another may observe the resulting state change,
+- and another may independently evaluate evidence of the final outcome.
+
+The number and type of Watchers may scale according to risk.
+
+Low-risk operations may require fewer observation channels.
+
+Higher-risk operations may require stronger independent observation.
+
+## Evidence Independence
+
+Multiple Watchers do not provide meaningful redundancy if all Watchers depend entirely on the same controllable evidence source.
+
+Where practical, high-risk verification should use evidence channels with independent failure characteristics.
+
+The architecture should therefore distinguish between:
+
+- multiple observers,
+- multiple evidence sources,
+- and genuinely independent verification paths.
+
+## Auditor Role
+
+Auditors do not perform the action being audited.
+
+Auditors verify integrity.
+
+An Auditor may verify:
+
+- authenticated request identity,
+- request-chain continuity,
+- authorization records,
+- institutional attestations,
+- execution evidence,
+- Watcher observations,
+- historical records,
+- and consistency between authorized intent and observed outcome.
+
+## Multiple Auditors
+
+FORGE and its institutions may use multiple independent Auditors.
+
+Auditors do not need to deliberate with one another.
+
+Each Auditor independently produces an authenticated attestation.
+
+The governing process may then require a quorum of valid matching attestations before accepting the audit result.
+
+This provides redundancy without turning the Auditors into an unchecked governing authority.
+
+## Auditor Independence
+
+An Auditor must not depend solely on the statement of the component being audited.
+
+Where possible, the Auditor verifies independently preserved evidence.
+
+The executor cannot prove correct execution merely by declaring:
+
+> Execution succeeded.
+
+Likewise, a Watcher cannot establish truth merely by declaring:
+
+> Everything appeared normal.
+
+Evidence must be evaluated against the authenticated request and authorization chain.
+
+## Subsystem-Level Verification
+
+Each authority-bearing subsystem may have its own independent Watchers and Auditors appropriate to its jurisdiction.
+
+This allows FORGE to detect abnormal behavior inside an institution rather than waiting until the final execution stage.
+
+Subsystem verification does not give the Watcher or Auditor the authority of the subsystem being observed.
+
+## Execution-Level Verification
+
+Consequential execution receives independent observation.
+
+The final verification process can compare:
+
+1. the original authenticated request,
+2. the institutional authorization chain,
+3. the execution instruction,
+4. execution evidence,
+5. Watcher observations,
+6. and the resulting state where independently observable.
+
+The objective is to establish that:
+
+> What happened corresponds to what was authorized.
+
+## Collusion Resistance
+
+FORGE assumes that individual components may become compromised.
+
+The architecture should therefore avoid designs in which compromise of any obvious pair of components automatically defeats verification.
+
+For example:
+
+Executor + Watcher
+
+should not automatically be sufficient to fabricate a valid execution record.
+
+Independent Auditor evidence and, for higher-risk actions, additional Watchers or evidence channels provide additional verification boundaries.
+
+FORGE does not assume that collusion can be made impossible.
+
+Instead, it attempts to increase the number and independence of failures required to produce an undetected unauthorized action.
+
+## No Self-Certification
+
+No authority-bearing component may be the sole certifier of its own consequential behavior.
+
+This applies to:
+
+- FORGE execution,
+- subsystem institutions,
+- recovery,
+- updates,
+- credential use,
+- and other privileged operations.
+
+## Disagreement
+
+If independent Watchers or Auditors materially disagree, FORGE does not simply select the most convenient result.
+
+The discrepancy becomes a governed exception requiring investigation, additional verification, containment, or another constitutionally defined response.
+
+For high-risk actions, unresolved verification disagreement fails closed.
+
+## Historical Preservation
+
+Watcher evidence and Auditor attestations associated with consequential actions are preserved by the Historian according to the applicable retention policy.
+
+The Historian preserves the record.
+
+It does not determine whether the action was authorized and does not modify the evidence to reconcile disagreement.
+
+## Consequences
+
+Independent observation and auditing increase:
+
+- computational cost,
+- storage requirements,
+- latency,
+- implementation complexity,
+- and operational overhead.
+
+However, they reduce FORGE's dependence on self-reported correctness.
+
+The architecture intentionally accepts this tradeoff for consequential operations.
+
+## Foundational Principle
+
+> Authorization establishes what may happen.
+
+> Watchers establish evidence of what did happen.
+
+> Auditors establish whether the evidence is consistent with what was authorized.
+
+No single one of these functions substitutes for the others.
