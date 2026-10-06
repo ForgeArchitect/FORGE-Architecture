@@ -1,0 +1,266 @@
+# ADR-005: Historian, Checkpoints, and Governed Recovery
+
+**Status:** Accepted  
+**Date:** 2026-10-06  
+**Architecture:** FORGE  
+**Decision Type:** Foundational / Recovery / Institutional Memory
+
+## Context
+
+FORGE requires the ability to recover from failed updates, corrupted configurations, degraded subsystem behavior, and other operational failures.
+
+Recovery creates a significant governance problem.
+
+A system capable of restoring itself to an earlier state may also possess the ability to:
+
+- erase evidence,
+- bypass newer controls,
+- restore unsafe authority,
+- rewrite operational history,
+- or unilaterally determine which version of itself should exist.
+
+FORGE therefore separates the authority to remember a previous state from the authority to restore that state.
+
+## Decision
+
+FORGE establishes the **Historian** as an independent institutional-memory function.
+
+The Historian preserves the historical record necessary to understand system evolution and identify legitimate recovery points.
+
+The Historian does not possess execution or restoration authority.
+
+Its role is:
+
+> Remember and provide evidence.
+
+It is not:
+
+> Decide and restore.
+
+## Historical Record
+
+The Historian maintains an append-oriented record of significant FORGE state and governance events.
+
+Depending on implementation and risk level, this may include:
+
+- constitutional versions,
+- architecture versions,
+- subsystem configurations,
+- software versions,
+- update records,
+- authorization records,
+- Auditor attestations,
+- Watcher evidence,
+- Doctor health records,
+- known-good checkpoints,
+- recovery events,
+- governance decisions,
+- and other evidence necessary to reconstruct system history.
+
+## Preservation of History
+
+Recovery does not erase the history that preceded it.
+
+If FORGE transitions:
+
+Version A  
+→ Version B  
+→ Version C
+
+and Version C is later determined to be unhealthy, restoration to Version B does not rewrite history as though Version C never existed.
+
+The record remains:
+
+Version A  
+→ Version B  
+→ Version C  
+→ Governed restoration to Version B
+
+Failed, unhealthy, rejected, and intermediate states remain part of the historical record.
+
+## Known-Good Checkpoints
+
+The Historian may preserve signed or otherwise authenticated known-good checkpoints.
+
+A checkpoint may contain or reference the state necessary for recovery, including:
+
+- software version,
+- constitutional version,
+- configuration,
+- dependency state,
+- institutional membership state,
+- health baseline,
+- relevant authorization state,
+- and integrity evidence.
+
+A checkpoint is not automatically considered safe merely because it exists.
+
+Its integrity and applicability must be verified during recovery.
+
+## Checkpoint Creation
+
+Significant system events may trigger checkpoint creation.
+
+Examples include:
+
+- before privileged updates,
+- after successful update verification,
+- before constitutional changes,
+- after validated constitutional changes,
+- before major configuration changes,
+- after verified recovery,
+- and at other constitutionally defined milestones.
+
+Checkpoint creation preserves recoverability.
+
+It does not authorize restoration.
+
+## No Unilateral Restoration
+
+The Historian cannot independently initiate or perform a rollback.
+
+The Historian cannot decide:
+
+> This version is bad, therefore I will restore the previous version.
+
+Instead, the Historian may report:
+
+> This is the last authenticated known-good checkpoint and the evidence associated with it.
+
+The decision to restore belongs to FORGE's governance process.
+
+## Recovery as a Highest-Risk Action
+
+Rollback or restoration can alter the operational state of the entire system.
+
+FORGE therefore treats whole-system restoration as a highest-risk governed action.
+
+Under the current architecture, restoration requires the defined whole-system unanimous governance process.
+
+The exact definition of eligible participation and handling of unavailable institutions must be specified separately before production implementation.
+
+The unanimity requirement cannot be silently weakened merely because recovery is inconvenient.
+
+## Recovery Sequence
+
+The conceptual recovery process is:
+
+1. A failure or unacceptable health condition is detected.
+2. The affected system or authority is contained where necessary.
+3. The Doctor provides relevant health findings.
+4. The Historian identifies candidate known-good checkpoint evidence.
+5. Auditors verify checkpoint integrity and relevant historical evidence.
+6. Governance evaluates the proposed restoration.
+7. The required unanimous authorization is obtained.
+8. The execution process performs the authorized restoration.
+9. Independent Watchers observe the restoration.
+10. Auditors verify the resulting state against the authorized checkpoint.
+11. The Doctor evaluates post-recovery health.
+12. The Historian records the recovery as a new historical event.
+
+## Separation of Roles
+
+Recovery authority remains distributed.
+
+### Historian
+
+Preserves history and checkpoint evidence.
+
+### Doctor
+
+Determines operational health and evaluates recovery health.
+
+### Auditor
+
+Verifies checkpoint integrity, authorization integrity, and restored-state consistency.
+
+### Governance Institutions
+
+Determine whether restoration is authorized.
+
+### FORGE Execution Process
+
+Performs only the specifically authorized restoration.
+
+### Watchers
+
+Observe what actually occurs during restoration.
+
+No single one of these functions controls the entire recovery process.
+
+## Recovery Authorization Binding
+
+Authorization to restore one checkpoint does not create general rollback authority.
+
+Recovery authorization is bound to:
+
+- the selected checkpoint,
+- the affected scope,
+- the authorized recovery operation,
+- and any other material constraints established during approval.
+
+Changing the target checkpoint or recovery scope requires renewed authorization.
+
+## Partial Recovery
+
+Where technically possible, FORGE should prefer the smallest recovery scope capable of safely resolving the failure.
+
+A failed subsystem should not automatically require whole-system rollback.
+
+Possible recovery scopes may include:
+
+- individual member,
+- subsystem,
+- service,
+- configuration,
+- update,
+- or whole-system state.
+
+Recovery scope must remain governed according to its potential consequences.
+
+## Evidence Preservation
+
+Recovery procedures must not depend on deleting evidence of the failure being recovered from.
+
+Relevant pre-failure, failure, and recovery evidence remains available to the Historian and verification process according to applicable retention rules.
+
+This allows FORGE to learn from failure without rewriting its past.
+
+## Recovery Failure
+
+If the restored state fails verification or health checks:
+
+- recovery is not declared successful,
+- affected authority remains contained where appropriate,
+- evidence is preserved,
+- and another governed recovery decision is required.
+
+The system does not repeatedly roll itself backward without authorization.
+
+## Consequences
+
+The Historian and governed recovery model require additional:
+
+- storage,
+- checkpoint management,
+- integrity verification,
+- governance coordination,
+- and recovery testing.
+
+FORGE accepts this overhead because recovery itself is a privileged action and must not become an uncontrolled administrative backdoor.
+
+## Foundational Principle
+
+> The Historian remembers.
+
+> Governance decides.
+
+> Execution restores.
+
+> Watchers observe.
+
+> Auditors verify.
+
+> The Doctor determines health.
+
+FORGE may return to a previous operational state without rewriting the history that explains why the restoration occurred.
