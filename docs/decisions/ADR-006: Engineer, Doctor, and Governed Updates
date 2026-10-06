@@ -1,0 +1,373 @@
+# ADR-006: Engineer, Doctor, and Governed Updates
+
+**Status:** Accepted  
+**Date:** 2026-10-06  
+**Architecture:** FORGE  
+**Decision Type:** Foundational / Updates / System Health
+
+## Context
+
+Autonomous systems require updates.
+
+Updates may improve capability, correct defects, address security problems, modify dependencies, or adapt a subsystem to changing operational requirements.
+
+However, an update can also introduce:
+
+- unexpected behavior,
+- degraded performance,
+- security vulnerabilities,
+- incompatibility,
+- behavioral drift,
+- constitutional violations,
+- cascading failures,
+- or loss of previously healthy functionality.
+
+FORGE therefore does not treat an update as a simple administrative action.
+
+An update is a governed state transition.
+
+## Decision
+
+FORGE establishes separate **Engineer** and **Doctor** institutions for technical change and system health.
+
+The Engineer is responsible for developing and proposing technical changes.
+
+The Doctor is responsible for evaluating operational health.
+
+Neither institution independently controls the complete update process.
+
+FORGE also rejects a universal one-size-fits-all update mechanism.
+
+Each subsystem receives updates appropriate to its own architecture, responsibilities, dependencies, and constitutional jurisdiction.
+
+## Engineer
+
+The Engineer may:
+
+- design updates,
+- develop patches,
+- package changes,
+- analyze technical requirements,
+- perform controlled testing,
+- identify dependencies,
+- prepare deployment plans,
+- and propose technical remediation.
+
+The Engineer does not possess unilateral authority to deploy privileged changes into production.
+
+The institution that creates a change cannot simply declare that the change is safe and install it.
+
+## Doctor
+
+The Doctor is FORGE's diagnostic and operational-health institution.
+
+The Doctor evaluates whether a subsystem is healthy before and after significant changes.
+
+The Doctor may:
+
+- establish health baselines,
+- perform diagnostics,
+- evaluate operational stability,
+- identify degradation,
+- detect abnormal behavior,
+- prescribe preparation or remediation,
+- perform post-change health examinations,
+- and determine whether health criteria have been satisfied.
+
+The Doctor diagnoses and prescribes.
+
+The Doctor does not independently execute arbitrary repairs.
+
+## Pre-Update Health Examination
+
+Before a privileged update is deployed, the Doctor performs a pre-update health examination.
+
+The purpose is to establish an authenticated baseline of the subsystem's condition before modification.
+
+The baseline may include measurements appropriate to that subsystem, such as:
+
+- operational status,
+- performance,
+- resource utilization,
+- response consistency,
+- error rates,
+- dependency health,
+- behavioral stability,
+- constitutional compliance indicators,
+- and other role-specific health metrics.
+
+The Historian preserves the relevant baseline.
+
+## Pre-Update Conditioning
+
+Some updates may require preparation before deployment.
+
+The Doctor may prescribe controlled preparation steps intended to improve update safety.
+
+Examples may include:
+
+- completing or safely pausing in-flight work,
+- entering a maintenance state,
+- validating dependencies,
+- clearing temporary non-authoritative state,
+- confirming resource availability,
+- or performing another approved preparation procedure.
+
+These procedures must not weaken constitutional safeguards merely to make an update easier to install.
+
+The Doctor may prescribe preparation.
+
+The appropriate authorized process performs it.
+
+## READY / NOT READY
+
+Following the pre-update examination, the Doctor produces a health finding.
+
+At minimum, the update process must be able to distinguish:
+
+- **READY**
+- **NOT READY**
+
+A NOT READY determination prevents normal rollout until the relevant health concern has been addressed through the governed process.
+
+The Engineer cannot override the Doctor merely because the Engineer wants the update deployed.
+
+## Pre-Update Checkpoint
+
+Before deployment, the Historian preserves the required recovery state and evidence.
+
+This may include:
+
+- current software version,
+- subsystem configuration,
+- health baseline,
+- dependencies,
+- constitutional version,
+- and other state necessary for governed recovery.
+
+Checkpoint creation does not itself authorize rollback.
+
+## Update Authorization
+
+The update package is bound to an authenticated update identity.
+
+Authorization applies to the specific update that was reviewed.
+
+Material modification of the package after authorization invalidates inherited approval.
+
+The modified package must be re-evaluated.
+
+## Execution
+
+After the required governance approvals, health checks, and integrity checks have been satisfied, FORGE's execution process performs the authorized deployment.
+
+Execution authority is limited to the approved update and scope.
+
+The Engineer does not acquire general production execution authority merely because it created the update.
+
+## Staged Rollout
+
+Where technically practical, privileged updates should be deployed in stages.
+
+For multi-member institutions, FORGE should avoid simultaneously modifying every redundant member where doing so would create an unnecessary common failure domain.
+
+A conceptual rollout may be:
+
+1. Select a limited deployment target.
+2. Establish pre-update health.
+3. Preserve recovery state.
+4. Deploy the authenticated update.
+5. Observe operation.
+6. Verify integrity.
+7. Perform post-update health examination.
+8. Expand rollout only if required criteria remain satisfied.
+
+The exact deployment strategy may vary by subsystem.
+
+## Watcher Observation
+
+Independent Watchers observe the update process and subsequent subsystem behavior.
+
+Watchers may provide evidence concerning:
+
+- deployment events,
+- unexpected actions,
+- state changes,
+- abnormal behavior,
+- failures,
+- and post-update operation.
+
+The subsystem being updated cannot unilaterally disable the Watchers responsible for observing the update.
+
+## Auditor Verification
+
+Auditors verify update integrity.
+
+The Auditor may confirm:
+
+- the deployed package matches the authorized package,
+- the authorized target was modified,
+- the authorization chain is valid,
+- execution remained within authorized scope,
+- and relevant evidence is internally consistent.
+
+The Auditor answers:
+
+> Was the authorized update installed as authorized?
+
+The Doctor answers:
+
+> Is the resulting subsystem healthy?
+
+These are separate questions.
+
+## Post-Update Health Examination
+
+After deployment, the Doctor performs another health examination.
+
+The resulting state is compared against:
+
+- the pre-update baseline,
+- expected update behavior,
+- role-specific health requirements,
+- and applicable constitutional constraints.
+
+A successful installation does not automatically mean a successful update.
+
+An update is not considered healthy merely because installation completed without an error.
+
+## Rollout Halt
+
+If Watchers, Auditors, or the Doctor identify a material problem during staged rollout, further deployment is halted.
+
+The failure is preserved in the historical record.
+
+Depending on severity, FORGE may:
+
+- contain the affected component,
+- diagnose the problem,
+- propose remediation,
+- or initiate the governed recovery process.
+
+The update mechanism cannot silently roll back the entire system on its own.
+
+## Periodic Subsystem Health Monitoring
+
+The Doctor's responsibilities are not limited to updates.
+
+The Doctor performs periodic proactive health examinations of FORGE subsystems.
+
+The objective is to identify deterioration before it becomes an operational incident.
+
+Periodic examinations may include:
+
+- stress testing,
+- diagnostics,
+- performance testing,
+- behavioral consistency checks,
+- resource-health analysis,
+- dependency checks,
+- stability testing,
+- drift detection,
+- failure simulation where appropriate,
+- and other subsystem-specific examinations.
+
+## Role-Specific Health Profiles
+
+Different FORGE institutions perform different jobs.
+
+Therefore, a single universal health test is insufficient.
+
+Each subsystem may maintain a defined health profile appropriate to its role.
+
+For example, the characteristics indicating a healthy Banker may differ substantially from those indicating a healthy Teacher, Engineer, Dispatcher, Auditor, or Watcher.
+
+The Doctor evaluates each institution against the health characteristics relevant to that institution.
+
+## Longitudinal Health
+
+The Historian preserves appropriate Doctor health records.
+
+This allows FORGE to compare a subsystem not only against a fixed threshold but also against its own historical behavior.
+
+Longitudinal analysis may reveal:
+
+- gradual degradation,
+- increasing error frequency,
+- resource deterioration,
+- behavioral instability,
+- performance decline,
+- or other changes that may not trigger a single-point failure threshold.
+
+## Health Finding
+
+When the Doctor identifies a material health problem, it produces a diagnostic finding and, where appropriate, a recommended treatment or containment strategy.
+
+The Doctor does not independently implement arbitrary treatment.
+
+The finding enters FORGE's governed remediation process.
+
+This maintains separation between:
+
+- diagnosis,
+- authorization,
+- execution,
+- observation,
+- and verification.
+
+## Doctor Independence
+
+A subsystem cannot declare itself healthy and thereby override the Doctor.
+
+Likewise, the Doctor cannot alter the subsystem simply because it believes the subsystem is unhealthy.
+
+Health authority and execution authority remain separated.
+
+## Update Failure
+
+A failed update does not disappear from the historical record.
+
+The Historian preserves:
+
+- the previous state,
+- attempted update,
+- authorization,
+- execution evidence,
+- Watcher evidence,
+- audit results,
+- Doctor findings,
+- and resulting recovery actions.
+
+This allows FORGE to improve without rewriting its own failure history.
+
+## Consequences
+
+Governed updates require more:
+
+- testing,
+- compute,
+- storage,
+- coordination,
+- deployment time,
+- health monitoring,
+- and operational complexity.
+
+FORGE accepts this cost because an autonomous system capable of modifying itself without independent health and governance controls would recreate the concentration of power FORGE is designed to prevent.
+
+## Foundational Principle
+
+> The Engineer changes the system.
+
+> The Doctor determines whether the system is healthy.
+
+> Governance authorizes the change.
+
+> The Historian preserves the before and after.
+
+> Execution deploys.
+
+> Watchers observe.
+
+> Auditors verify.
+
+FORGE treats an update as a governed medical procedure for the system rather than an unrestricted software installation.
