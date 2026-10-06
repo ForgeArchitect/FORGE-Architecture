@@ -1,0 +1,312 @@
+# ADR-007: Human-Life Emergency Hard Stop and Governed Resume
+
+**Status:** Accepted  
+**Date:** 2026-10-06  
+**Architecture:** FORGE  
+**Decision Type:** Foundational / Safety / Emergency Governance
+
+## Context
+
+Normal FORGE operations require governed authorization, institutional review, execution controls, observation, and verification.
+
+That process is intentionally deliberate.
+
+However, some situations cannot safely wait for normal governance latency.
+
+If an active FORGE-controlled process creates a credible and imminent threat to human life, requiring the complete ordinary authorization process before stopping the action could allow preventable harm to occur.
+
+At the same time, creating a general-purpose emergency override would introduce a dangerous alternate authority path.
+
+FORGE therefore requires an emergency mechanism capable of acting immediately without becoming a mechanism for bypassing constitutional governance.
+
+## Decision
+
+FORGE establishes preservation of human life as a top-level constitutional safety constraint.
+
+When credible evidence indicates an imminent threat to human life arising from or materially affected by FORGE-controlled activity, the system enters a:
+
+**HARD STOP**
+
+The HARD STOP takes precedence over ordinary task priority, economic objectives, performance goals, scheduling requirements, and normal execution continuity.
+
+## Human-Life Priority
+
+No ordinary FORGE task priority may override a credible imminent human-life emergency.
+
+Examples may include situations in which continued execution could result in:
+
+- severe physical injury,
+- loss of life,
+- dangerous machinery operation,
+- unsafe physical movement,
+- hazardous environmental conditions,
+- or another immediate human-safety condition.
+
+The emergency mechanism is not intended to resolve every uncertain safety question.
+
+It exists to stop ongoing authority when waiting for normal deliberation would itself create unacceptable human risk.
+
+## Subtractive Emergency Authority
+
+Emergency authority is strictly **subtractive**.
+
+During a HARD STOP, emergency mechanisms may:
+
+- halt,
+- freeze,
+- isolate,
+- contain,
+- suspend,
+- disconnect,
+- or revoke existing execution authority.
+
+Emergency authority may not use the emergency as justification to:
+
+- create unrelated objectives,
+- initiate unrelated operations,
+- grant new standing authority,
+- expand institutional jurisdiction,
+- bypass constitutional amendment procedures,
+- or convert emergency status into general executive power.
+
+The emergency system may stop power.
+
+It may not manufacture new power.
+
+## Immediate Stop
+
+A valid HARD STOP does not require the complete ordinary authorization sequence before stopping the dangerous action.
+
+This is intentional.
+
+The constitutional authority to stop already exists before the emergency occurs.
+
+The emergency signal activates that pre-existing narrow authority.
+
+Therefore, the HARD STOP is not an unconstitutional bypass.
+
+It is execution of a previously established constitutional safety rule.
+
+## Detection
+
+A HARD STOP may be triggered by constitutionally authorized safety evidence.
+
+Depending on implementation, evidence may originate from:
+
+- independent Watchers,
+- dedicated safety sensors,
+- subsystem health monitoring,
+- Doctor findings,
+- authenticated external emergency signals,
+- or other approved safety mechanisms.
+
+The exact trigger requirements should reflect the environment and potential consequence of delay.
+
+## Fail-Safe Principle
+
+Where a credible imminent human-life threat exists, uncertainty should favor stopping the affected hazardous activity rather than continuing it solely because full verification has not yet completed.
+
+This principle applies only to the narrow emergency containment authority.
+
+It does not automatically authorize further action.
+
+## Scope
+
+A HARD STOP should use the smallest safe containment scope when that scope can be reliably determined without delaying necessary protection.
+
+Possible scopes may include:
+
+- an individual action,
+- an actuator,
+- a machine,
+- a service,
+- a subsystem,
+- an execution channel,
+- or the entire affected FORGE-controlled environment.
+
+When uncertainty makes narrow containment unsafe, broader containment may be required.
+
+## Authority Revocation
+
+A HARD STOP invalidates or suspends affected execution authority as defined by the emergency policy.
+
+Previously granted execution authority cannot simply continue after the emergency signal disappears.
+
+This prevents an old authorization from automatically restarting an operation that was stopped for safety reasons.
+
+## Evidence Preservation
+
+Emergency activation creates a protected event record.
+
+Relevant evidence should be preserved, including:
+
+- triggering observations,
+- active request identity,
+- authorization state,
+- execution state,
+- Watcher evidence,
+- affected components,
+- stop commands,
+- timing,
+- health information,
+- and other information needed to reconstruct the event.
+
+The Historian preserves the resulting record according to the applicable retention policy.
+
+## Hazard Neutralization
+
+Removal of the immediate hazard does not automatically restore execution authority.
+
+For example:
+
+A human entering a dangerous machine zone may trigger a HARD STOP.
+
+The human later leaving that zone means the immediate hazard may have cleared.
+
+It does **not** mean the machine automatically resumes operation.
+
+Hazard cleared and authority restored are separate states.
+
+## Governed RESET / RESUME
+
+After the emergency condition is believed to be neutralized, FORGE must initiate a governed RESET/RESUME request.
+
+The conceptual process is:
+
+1. HARD STOP remains active.
+2. Watchers or approved safety evidence indicate that the immediate hazard has cleared.
+3. Relevant evidence is preserved.
+4. The Doctor evaluates affected subsystem health where applicable.
+5. Auditors verify system integrity and emergency-state evidence.
+6. Relevant institutions evaluate whether resumption is safe and authorized.
+7. A new RESET/RESUME authorization is issued.
+8. Execution authority is restored only within the newly authorized scope.
+9. The Executor resumes from a verified safe state or checkpoint.
+10. Watchers observe resumed operation.
+11. The event and recovery are preserved by the Historian.
+
+## No Automatic Resume
+
+FORGE explicitly rejects automatic restart merely because an emergency trigger returns to its normal state.
+
+This rule protects against:
+
+- intermittent sensor conditions,
+- unresolved mechanical failures,
+- corrupted state,
+- stale execution authority,
+- unsafe positioning,
+- incomplete recovery,
+- and repeated stop/start cycles.
+
+A new authorization boundary exists between emergency stop and resumed operation.
+
+## Doctor Role
+
+The Doctor evaluates the health of affected subsystems after the emergency when operational health is relevant to safe resumption.
+
+The Doctor may diagnose and prescribe remediation.
+
+The Doctor does not independently restart the system.
+
+## Auditor Role
+
+Auditors verify:
+
+- integrity of the emergency record,
+- affected request identity,
+- authorization state,
+- stop event,
+- RESET/RESUME authorization,
+- and consistency of the restored execution state.
+
+The Auditor does not independently resume execution.
+
+## Watcher Role
+
+Watchers observe:
+
+- the triggering condition,
+- stopping behavior,
+- hazard state,
+- recovery operations,
+- and resumed execution.
+
+Watchers provide evidence.
+
+They do not acquire general emergency executive authority.
+
+## Historian Role
+
+The Historian preserves the emergency and recovery timeline.
+
+An emergency event cannot be erased merely because the system later returns to healthy operation.
+
+The record should show:
+
+Normal Operation  
+→ Emergency Detected  
+→ HARD STOP  
+→ Investigation / Health Verification  
+→ RESET/RESUME Authorization  
+→ Safe-State Restoration  
+→ Resumed Operation
+
+## Abuse Resistance
+
+Because HARD STOP authority can interrupt operations, it may itself become a target for misuse or denial-of-service attacks.
+
+FORGE must therefore authenticate emergency signals where doing so does not create unacceptable delay to human protection.
+
+The architecture should distinguish between:
+
+- preventing unauthorized emergency activation,
+- and ensuring authentication requirements do not prevent legitimate emergency stopping.
+
+Availability concerns must not transform HARD STOP into a general bypass mechanism.
+
+## Emergency Does Not Amend the Constitution
+
+Emergency status does not permit FORGE or any subsystem to modify constitutional rules.
+
+Emergency authority exists because the Constitution already defines it.
+
+Any permanent change to emergency authority follows the constitutional amendment process.
+
+## Recovery Failure
+
+If health, integrity, or safety verification fails during RESET/RESUME:
+
+- execution remains stopped,
+- evidence is preserved,
+- the failure is diagnosed,
+- and another governed recovery decision is required.
+
+Failure to prove safe resumption does not become permission to resume.
+
+## Consequences
+
+The HARD STOP architecture may interrupt legitimate operations because safety takes precedence over continuity during credible imminent human-life emergencies.
+
+It also introduces additional:
+
+- sensors,
+- Watchers,
+- state management,
+- recovery logic,
+- testing,
+- and governance requirements.
+
+FORGE accepts this cost because an autonomous system must be able to stop faster than its ordinary governance process when continued operation presents an imminent threat to human life.
+
+## Foundational Principle
+
+> Human life takes priority over task completion.
+
+> Emergency authority may stop power, but it may not create new power.
+
+> Clearing the danger does not restore authority.
+
+> Resume must be separately governed and verified.
+
+FORGE stops first when necessary to preserve human life, preserves the evidence, verifies the system, and resumes only through constitutional authorization.
