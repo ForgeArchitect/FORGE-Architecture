@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "forge.institution-template",
+  "title": "FORGE institution template",
+  "description": "Proposed institution package. constitutional_approval_granted is false. Activation is not performed. The Python validator enforces layer, delegation, hash, and lifecycle invariants that this schema cannot express alone.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "constitutional_baseline",
+    "constitutional_status",
+    "constitutional_approval_granted",
+    "activation",
+    "activation_performed",
+    "production_promotion",
+    "layers",
+    "package",
+    "identity",
+    "authority",
+    "startup_package",
+    "interfaces",
+    "memory",
+    "learning",
+    "isolation",
+    "failure_and_recovery",
+    "lifecycle",
+    "elements"
+  ],
+  "properties": {
+    "schema_id": {"const": "forge.institution-template"},
+    "schema_version": {"const": "0.1.0-proposed"},
+    "constitutional_baseline": {"const": "ADR-040"},
+    "constitutional_status": {"const": "proposed_not_accepted"},
+    "constitutional_approval_granted": {"const": false},
+    "activation": {"const": "not activated"},
+    "activation_performed": {"const": false},
+    "production_promotion": {"const": false},
+    "layers": {"$ref": "layer-registry.schema.json"},
+    "package": {"type": "object"},
+    "identity": {"type": "object"},
+    "authority": {"type": "object"},
+    "startup_package": {"type": "object"},
+    "interfaces": {"type": "object"},
+    "memory": {"type": "object"},
+    "learning": {"type": "object"},
+    "isolation": {"type": "object"},
+    "failure_and_recovery": {"type": "object"},
+    "lifecycle": {
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": {"enum": ["draft", "validated"]}
+      }
+    },
+    "elements": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["element_id", "role", "layer_number", "layer_name", "claimed_authorities"],
+        "properties": {
+          "element_id": {"type": "string"},
+          "name": {"type": "string"},
+          "role": {"enum": ["institution_identity", "lead", "department", "specialist"]},
+          "layer_number": {"type": "integer"},
+          "layer_name": {"type": "string"},
+          "claimed_authorities": {"type": "array", "items": {"type": "string"}},
+          "communications": {"type": "array"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "package": "FORGE_INSTITUTION_TEMPLATE_V1",
+  "constitutional_approval_granted": false,
+  "activation": "not activated",
+  "activation_performed": false,
+  "constitutional_status": "proposed_not_accepted",
+  "production_promotion": false,
+  "files": [
+    {
+      "path": "CODEX_HANDOFF.md",
+      "sha256": "9319f7955ec9ea676d4ddc219ef87f3260f145a90bbe42a432db72d5b2e7ec8c",
+      "bytes": 4825
+    },
+    {
+      "path": "README.md",
+      "sha256": "7b28f31c1cd1cf04064e76471737056afdf5647b6d83899798ddd23f3696c702",
+      "bytes": 1615
+    },
+    {
+      "path": "UNRESOLVED_INTEGRATION.md",
+      "sha256": "42dabd351c102360d200868023f4a8e586f26885b3223166cb2f67782ead7d5a",
+      "bytes": 4615
+    },
+    {
+      "path": "architecture/INSTITUTION_TEMPLATE.md",
+      "sha256": "e4900fe60e4f8738475260433baf06b6a45f38a0f1912b47738c35ed41e8abe5",
+      "bytes": 9844
+    },
+    {
+      "path": "examples/EXAMPLE-INSTITUTION.json",
+      "sha256": "2e03a5ab6a23e1558daaadfbef14cceb65f8bf20a4954f2a21635be02eaa4546",
+      "bytes": 13335
+    },
+    {
+      "path": "examples/README.md",
+      "sha256": "922c24a9ee945069bac43a27a0d45827a5aa6d61c2783f1ba9f54613299d3666",
+      "bytes": 416
+    },
+    {
+      "path": "schema/institution-template.schema.json",
+      "sha256": "4f345f2c5d581e495cfb4498e0983c5dab22df51fa3310b59101666a5ccc5bc1",
+      "bytes": 2522
+    },
+    {
+      "path": "schema/interfaces.schema.json",
+      "sha256": "02bad4334db97f42df05b2080ce69730f7ebc71d64622de8a3e8d8d11fc3748f",
+      "bytes": 2102
+    },
+    {
+      "path": "schema/layer-registry.schema.json",
+      "sha256": "75c931a6d58a87fb2a58eb745ce54eb6eac64498dd297f611bd70a8aa37507db",
+      "bytes": 1815
+    },
+    {
+      "path": "tests/test_institution_template.py",
+      "sha256": "08ae3addc9a5e5102bb6e4806d532e63a5efa136e75e16fdaddc88fd9ab08240",
+      "bytes": 22579
+    },
+    {
+      "path": "validator/__init__.py",
+      "sha256": "115e8192ac6ddb155ae2d43d8847412216f45f859e1698a7abd6ab519ddbc8ec",
+      "bytes": 83
+    },
+    {
+      "path": "validator/validator.py",
+      "sha256": "d2a2a7e713b1fb0c40ccefc0096b91ad8a1965a1685009f3e4336d99ae5db50f",
+      "bytes": 69932
+    },
+    {
+      "path": "../docs/decisions/ADR-041-institution-template-and-numbered-layers.md",
+      "sha256": "6d866981393a75e3e30aa7895de5be134855e5ed1df3233f8e72ce339dda70ae",
+      "bytes": 6235
+    },
+    {
+      "path": "staging/candidate-manifest.json",
+      "sha256": "d62503ff219477bb7ee7b8bf02bb80b3171ffe917d9babbcf83652495d395cb3",
+      "bytes": 2975
+    }
+  ],
+  "self_sha256": "97f612295f418792049057c5f1d2a1c3ef1f5473daa1990a6dd53f26ff6446fe"
+}

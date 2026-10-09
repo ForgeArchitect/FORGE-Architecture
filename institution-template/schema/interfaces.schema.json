@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "forge.institution-template.interfaces",
+  "title": "FORGE institution interface messages",
+  "description": "Versioned request, proposal, review, and result messages. A message may be routed. It does not grant authority or perform external execution.",
+  "$defs": {
+    "mediatedMessage": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "message_type",
+        "sender_element_id",
+        "sender_layer_number",
+        "sender_layer_name",
+        "mediated_via",
+        "direct_internal_access",
+        "grants_authority",
+        "execution_performed",
+        "constitutional_approval_granted"
+      ],
+      "properties": {
+        "schema_version": {"const": "0.1.0-proposed"},
+        "message_type": {"enum": ["request", "proposal", "review", "result"]},
+        "sender_element_id": {"type": "string", "minLength": 1},
+        "sender_role": {"enum": ["institution_identity", "lead", "department", "specialist"]},
+        "sender_layer_number": {"type": "integer", "enum": [2, 4, 11, 12]},
+        "sender_layer_name": {"type": "string"},
+        "mediated_via": {
+          "type": "array",
+          "items": {"enum": ["dispatcher", "gatekeeper"]},
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "direct_internal_access": {"const": false},
+        "grants_authority": {"const": false},
+        "execution_performed": {"const": false},
+        "constitutional_approval_granted": {"const": false},
+        "claimed_authorities": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "body": {"type": "object"}
+      }
+    }
+  },
+  "oneOf": [
+    {"$ref": "#/$defs/mediatedMessage", "properties": {"message_type": {"const": "request"}}},
+    {"$ref": "#/$defs/mediatedMessage", "properties": {"message_type": {"const": "proposal"}}},
+    {"$ref": "#/$defs/mediatedMessage", "properties": {"message_type": {"const": "review"}}},
+    {"$ref": "#/$defs/mediatedMessage", "properties": {"message_type": {"const": "result"}}}
+  ]
+}

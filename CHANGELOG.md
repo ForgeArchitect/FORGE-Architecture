@@ -116,6 +116,15 @@ The changelog is intended to preserve the evolution of the architecture alongsid
 
 ---
 
+## [Unreleased] - Proposed only
+
+### Institution template
+
+- Added a proposed institution-template package under `institution-template/`.
+- Added ADR-041 with status Proposed. It is not Accepted and it does not amend ADR-001 through ADR-040.
+- The example institution is non-production and its lifecycle is `validated`. It is not approved and not activated.
+- Layers 1–10 are the ADR-040 numbers and names. Layers 11–12 are an unapproved proposed extension.
+
 ## Status
 
 FORGE remains under active architectural development.

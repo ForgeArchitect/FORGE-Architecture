@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "forge.institution-template.layer-registry",
+  "title": "FORGE numbered layers",
+  "description": "Layers 1-10 are the ADR-040 constitutional architecture layers, copied exactly. Layers 11 and 12 are a proposed extension for institution-internal ranks and are not approved.",
+  "type": "array",
+  "minItems": 12,
+  "maxItems": 12,
+  "items": {
+    "type": "object",
+    "required": ["layer_number", "name", "status", "source"],
+    "properties": {
+      "layer_number": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 12
+      },
+      "name": {"type": "string", "minLength": 1},
+      "status": {"enum": ["canonical", "proposed"]},
+      "source": {"type": "string"},
+      "constitutional_approval_granted": {"const": false},
+      "human_decision_required": {"type": "boolean"},
+      "independent_of_delegation": {"type": "boolean"}
+    }
+  },
+  "x-canonical-layers": [
+    {"layer_number": 1, "name": "Root Constitutional Authority"},
+    {"layer_number": 2, "name": "Identity and Institutional Structure"},
+    {"layer_number": 3, "name": "Request and Intent Governance"},
+    {"layer_number": 4, "name": "Authorization"},
+    {"layer_number": 5, "name": "Capability Enforcement"},
+    {"layer_number": 6, "name": "Execution"},
+    {"layer_number": 7, "name": "Independent Observation"},
+    {"layer_number": 8, "name": "Verification and Evidence"},
+    {"layer_number": 9, "name": "Health and Assurance"},
+    {"layer_number": 10, "name": "Recovery and Constitutional Continuity"}
+  ],
+  "x-proposed-layers": [
+    {"layer_number": 11, "name": "Institution Department", "constitutional_approval_granted": false},
+    {"layer_number": 12, "name": "Specialist Agent", "constitutional_approval_granted": false}
+  ]
+}

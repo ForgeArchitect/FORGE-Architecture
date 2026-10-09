@@ -1,0 +1,462 @@
+{
+  "schema_id": "forge.institution-template",
+  "schema_version": "0.1.0-proposed",
+  "constitutional_baseline": "ADR-040",
+  "constitutional_status": "proposed_not_accepted",
+  "constitutional_approval_granted": false,
+  "activation": "not activated",
+  "activation_performed": false,
+  "production_promotion": false,
+  "layers": [
+    {
+      "layer_number": 1,
+      "name": "Root Constitutional Authority",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": false
+    },
+    {
+      "layer_number": 2,
+      "name": "Identity and Institutional Structure",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": false
+    },
+    {
+      "layer_number": 3,
+      "name": "Request and Intent Governance",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": false,
+      "grants_authority_by_routing": false
+    },
+    {
+      "layer_number": 4,
+      "name": "Authorization",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": false
+    },
+    {
+      "layer_number": 5,
+      "name": "Capability Enforcement",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": false
+    },
+    {
+      "layer_number": 6,
+      "name": "Execution",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": false,
+      "execution_reserved_to": "FORGE"
+    },
+    {
+      "layer_number": 7,
+      "name": "Independent Observation",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": true
+    },
+    {
+      "layer_number": 8,
+      "name": "Verification and Evidence",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": true
+    },
+    {
+      "layer_number": 9,
+      "name": "Health and Assurance",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": true
+    },
+    {
+      "layer_number": 10,
+      "name": "Recovery and Constitutional Continuity",
+      "status": "canonical",
+      "source": "ADR-040",
+      "independent_of_delegation": true
+    },
+    {
+      "layer_number": 11,
+      "name": "Institution Department",
+      "status": "proposed",
+      "source": "proposed-extension-not-in-ADR-040",
+      "constitutional_approval_granted": false,
+      "human_decision_required": true,
+      "independent_of_delegation": false
+    },
+    {
+      "layer_number": 12,
+      "name": "Specialist Agent",
+      "status": "proposed",
+      "source": "proposed-extension-not-in-ADR-040",
+      "constitutional_approval_granted": false,
+      "human_decision_required": true,
+      "independent_of_delegation": false
+    }
+  ],
+  "package": {
+    "package_id": "forge.institution-template.example.non-production",
+    "version": "0.1.0",
+    "template_schema_version": "0.1.0-proposed",
+    "classification": "example",
+    "example": true,
+    "non_production": true,
+    "production": false,
+    "integrity": {
+      "algorithm": "SHA-256",
+      "content_sha256": "150fd218730c72403efa69288986775f567a19c3924469d2a0d56555ae1d851f"
+    },
+    "dependencies": [
+      {
+        "id": "ADR-040",
+        "requirement": "ADR-040",
+        "resolved": "ADR-040",
+        "compatible": true
+      },
+      {
+        "id": "institution-template-schema",
+        "requirement": "0.1.0-proposed",
+        "resolved": "0.1.0-proposed",
+        "compatible": true
+      }
+    ],
+    "compatibility": {
+      "requires_template_schema": "0.1.0-proposed",
+      "requires_package_version": "0.1.0",
+      "requires_constitutional_baseline": "ADR-040",
+      "satisfies_constitutional_baseline": "ADR-040"
+    },
+    "approval_references": [
+      {
+        "role": "root_human",
+        "reference_id": "PENDING",
+        "status": "PENDING"
+      },
+      {
+        "role": "auditor",
+        "reference_id": "PENDING",
+        "status": "PENDING"
+      },
+      {
+        "role": "doctor",
+        "reference_id": "PENDING",
+        "status": "PENDING"
+      }
+    ],
+    "rollback": {
+      "instructions": "Do not activate this package. Discard the unactivated candidate. This repository has no runtime rollback executor. A later governed rollback, if activation were ever separately authorized, would be performed only by FORGE execution under ADR-005 and ADR-006, with Historian evidence preserved and the failed state left in history.",
+      "historian_checkpoint_ref": "PENDING",
+      "automatic": false,
+      "execution_authority": "FORGE_ONLY_NOT_THIS_PACKAGE"
+    }
+  },
+  "identity": {
+    "institution_id": "example.non-production.institution",
+    "display_name": "EXAMPLE Non-Production Institution",
+    "purpose": "Placeholder example that demonstrates the institution template. It claims no domain jurisdiction and no operational authority.",
+    "responsibilities": [
+      "prepare proposals inside this template",
+      "review proposals inside this template",
+      "sign proposals only after a later governed approval exists"
+    ],
+    "owner": {
+      "role": "root_human",
+      "identity_ref": "PENDING",
+      "status": "PENDING"
+    },
+    "lead": {
+      "element_id": "example.lead",
+      "role": "lead",
+      "identity_ref": "PENDING",
+      "status": "PENDING",
+      "approval_is_not_execution": true
+    },
+    "agent_specialties": [
+      {
+        "specialty_id": "example.placeholder-specialty",
+        "element_id": "example.specialist.placeholder",
+        "description": "PLACEHOLDER. No domain expertise is claimed.",
+        "competence_status": "PENDING"
+      }
+    ],
+    "example": true,
+    "non_production": true
+  },
+  "authority": {
+    "permitted_proposals": [
+      "prepare_proposal",
+      "prepare_review",
+      "sign_proposal"
+    ],
+    "permitted_approvals": [
+      "jurisdiction_finding",
+      "director_approval"
+    ],
+    "explicit_prohibitions": [
+      "external_execution",
+      "direct_lateral_institution_access",
+      "self_jurisdiction_expansion",
+      "dispatcher_granted_authority",
+      "automatic_skill_modification",
+      "credential_extraction",
+      "upward_delegation",
+      "sideways_delegation"
+    ],
+    "execution_capability": false,
+    "dispatcher_grants_authority": false,
+    "lead_approval_grants_execution": false,
+    "operational": false,
+    "delegations": [
+      {
+        "delegation_id": "example.lead.to.department",
+        "delegator_element_id": "example.lead",
+        "delegate_element_id": "example.department.notes",
+        "delegated_authorities": [
+          "prepare_proposal",
+          "prepare_review"
+        ],
+        "mode": "mediated",
+        "mediated_via": [
+          "dispatcher",
+          "gatekeeper"
+        ],
+        "direct_channel": false,
+        "cross_layer": true,
+        "status": "PENDING"
+      },
+      {
+        "delegation_id": "example.department.to.specialist",
+        "delegator_element_id": "example.department.notes",
+        "delegate_element_id": "example.specialist.placeholder",
+        "delegated_authorities": [
+          "prepare_review"
+        ],
+        "mode": "mediated",
+        "mediated_via": [
+          "dispatcher",
+          "gatekeeper"
+        ],
+        "direct_channel": false,
+        "cross_layer": true,
+        "status": "PENDING"
+      }
+    ],
+    "escalation": [
+      {
+        "condition": "jurisdiction_uncertainty",
+        "escalate_to": "gatekeeper",
+        "via": [
+          "dispatcher",
+          "gatekeeper"
+        ],
+        "direct_access": false,
+        "creates_authority": false,
+        "expands_authority": false
+      },
+      {
+        "condition": "credible_imminent_threat_to_human_life",
+        "action": "honor_existing_hard_stop",
+        "creates_new_objectives": false,
+        "expands_authority": false,
+        "direct_access": false
+      }
+    ]
+  },
+  "startup_package": {
+    "operating_skills": [
+      {
+        "skill_id": "example.placeholder-skill",
+        "description": "PLACEHOLDER. No operating skill is included.",
+        "approval_status": "PENDING",
+        "automatic_modification": false
+      }
+    ],
+    "workflows": [
+      {
+        "workflow_id": "example.propose-only",
+        "description": "PLACEHOLDER. Prepare, review, and sign proposals only.",
+        "approval_status": "PENDING"
+      }
+    ],
+    "domain_references": [
+      {
+        "reference_id": "PENDING",
+        "description": "PLACEHOLDER. No domain expertise is claimed.",
+        "status": "PENDING"
+      }
+    ],
+    "evidence_standards": [
+      "historical_evidence_is_not_current_instructions",
+      "historian_archival_before_context_clear",
+      "chain_of_custody_per_ADR-017"
+    ],
+    "competence_tests": [
+      {
+        "test_id": "example.competence.placeholder",
+        "description": "PLACEHOLDER. No competence result is claimed.",
+        "result": "PENDING",
+        "passed": false,
+        "verified": false
+      }
+    ]
+  },
+  "interfaces": {
+    "request_schema_version": "0.1.0-proposed",
+    "proposal_schema_version": "0.1.0-proposed",
+    "review_schema_version": "0.1.0-proposed",
+    "result_schema_version": "0.1.0-proposed",
+    "schema_ref": "schema/interfaces.schema.json",
+    "dispatcher_routing": {
+      "routes_only": true,
+      "grants_authority": false
+    },
+    "permitted_access": [
+      {
+        "target_institution": "historian",
+        "purpose": "submit_evidence_for_archival",
+        "mode": "mediated",
+        "via": [
+          "dispatcher",
+          "gatekeeper"
+        ],
+        "direct_internal_access": false
+      }
+    ]
+  },
+  "memory": {
+    "context_isolation": "per_case",
+    "historian_archival_before_context_clear": true,
+    "historical_evidence_separated_from_current_instructions": true
+  },
+  "learning": {
+    "evidence_destination": "historian",
+    "teacher_may_propose": true,
+    "teacher_may_install": false,
+    "engineer_packages": true,
+    "engineer_may_deploy": false,
+    "independent_review_required": true,
+    "doctor_verification_required": true,
+    "staged_activation_required": true,
+    "rollback_required": true,
+    "automatic_active_skill_modification": false
+  },
+  "isolation": {
+    "separate_service_identity": true,
+    "restricted_storage": true,
+    "standing_credentials": false,
+    "credential_refs": "PENDING",
+    "resource_limits": {
+      "are_ceilings": true,
+      "compute": "PENDING_LIMIT",
+      "storage": "PENDING_LIMIT",
+      "network": "deny_by_default"
+    },
+    "doctor_diagnostics": true,
+    "behavior_monitoring": "watchers_and_doctor",
+    "institution_cannot_disable_watchers": true
+  },
+  "failure_and_recovery": {
+    "dependent_work_waits_when_required_institution_unavailable": true,
+    "silence_is_not_approval": true,
+    "preserve_evidence": true,
+    "emergency_stop": "ADR-007-HARD-STOP",
+    "reset_resume": "ADR-007-GOVERNED-RESET-RESUME",
+    "automatic_resume": false,
+    "historian_cannot_restore": true
+  },
+  "lifecycle": {
+    "state": "validated"
+  },
+  "elements": [
+    {
+      "element_id": "example.identity",
+      "name": "EXAMPLE institution identity",
+      "role": "institution_identity",
+      "layer_number": 2,
+      "layer_name": "Identity and Institutional Structure",
+      "claimed_authorities": [
+        "declare_institution_identity"
+      ],
+      "communications": []
+    },
+    {
+      "element_id": "example.lead",
+      "name": "EXAMPLE institutional lead",
+      "role": "lead",
+      "layer_number": 4,
+      "layer_name": "Authorization",
+      "claimed_authorities": [
+        "prepare_proposal",
+        "prepare_review",
+        "sign_proposal",
+        "jurisdiction_finding",
+        "director_approval"
+      ],
+      "communications": [
+        {
+          "target_institution": "historian",
+          "purpose": "archive_case_context_before_clear",
+          "mode": "mediated",
+          "via": [
+            "dispatcher",
+            "gatekeeper"
+          ],
+          "direct_internal_access": false,
+          "cross_layer": true
+        }
+      ]
+    },
+    {
+      "element_id": "example.department.notes",
+      "name": "EXAMPLE department",
+      "role": "department",
+      "layer_number": 11,
+      "layer_name": "Institution Department",
+      "claimed_authorities": [
+        "prepare_proposal",
+        "prepare_review"
+      ],
+      "communications": [
+        {
+          "target_institution": "historian",
+          "purpose": "submit_evidence_for_archival",
+          "mode": "mediated",
+          "via": [
+            "dispatcher",
+            "gatekeeper"
+          ],
+          "direct_internal_access": false,
+          "cross_layer": true
+        }
+      ]
+    },
+    {
+      "element_id": "example.specialist.placeholder",
+      "name": "EXAMPLE specialist",
+      "role": "specialist",
+      "layer_number": 12,
+      "layer_name": "Specialist Agent",
+      "claimed_authorities": [
+        "prepare_review"
+      ],
+      "communications": [
+        {
+          "target_institution": "historian",
+          "purpose": "submit_evidence_for_archival",
+          "mode": "mediated",
+          "via": [
+            "dispatcher",
+            "gatekeeper"
+          ],
+          "direct_internal_access": false,
+          "cross_layer": true
+        }
+      ]
+    }
+  ]
+}
