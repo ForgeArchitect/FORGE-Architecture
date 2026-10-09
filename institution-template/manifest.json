@@ -7,6 +7,11 @@
   "production_promotion": false,
   "files": [
     {
+      "path": ".gitignore",
+      "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+      "bytes": 19
+    },
+    {
       "path": "CODEX_HANDOFF.md",
       "sha256": "9319f7955ec9ea676d4ddc219ef87f3260f145a90bbe42a432db72d5b2e7ec8c",
       "bytes": 4825
@@ -73,9 +78,9 @@
     },
     {
       "path": "staging/candidate-manifest.json",
-      "sha256": "d62503ff219477bb7ee7b8bf02bb80b3171ffe917d9babbcf83652495d395cb3",
-      "bytes": 2975
+      "sha256": "1854d6d067b2dff61f9f8eae88070dea88c24a3ea154cf75191afc829deed95a",
+      "bytes": 3118
     }
   ],
-  "self_sha256": "97f612295f418792049057c5f1d2a1c3ef1f5473daa1990a6dd53f26ff6446fe"
+  "self_sha256": "3246a1b81f2d8f31a90975ad1203fe29d17f8705bc1cf589ef9e4def1519eab2"
 }

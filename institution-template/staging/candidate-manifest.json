@@ -17,6 +17,11 @@
   },
   "files": [
     {
+      "path": ".gitignore",
+      "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+      "bytes": 19
+    },
+    {
       "path": "CODEX_HANDOFF.md",
       "sha256": "9319f7955ec9ea676d4ddc219ef87f3260f145a90bbe42a432db72d5b2e7ec8c",
       "bytes": 4825
@@ -82,5 +87,5 @@
       "bytes": 6235
     }
   ],
-  "self_sha256": "07cfb2c03ab5a1b537451a0496443c7367528f9d2485abba3e7830c7b999410b"
+  "self_sha256": "8477c7491cfebe712a50eb94e6a21e775a793baee14fe78a16f61213ad6cca3e"
 }
