@@ -6,8 +6,11 @@
   "base_branch": "main",
   "base_commit": "3229df7bea351517921a6251f15a0abb049c4019",
   "base_commit_subject": "FORGE v1.0 constitutional architecture baseline",
+  "drafts_commit": "d39afea28dd3240e9464f21e216a3fc3f071159d",
+  "drafts_commit_subject": "docs: propose post-v1 ADR drafts and coverage audit",
   "head_commit": null,
-  "pull_request_url": null,
+  "head_commit_note": "The branch tip is the commit that records this report update. Its hash is the pull request head SHA and cannot be stored inside itself.",
+  "pull_request_url": "https://github.com/ForgeArchitect/FORGE-Architecture/pull/1",
   "merged": false,
   "pushed_to_main": false,
   "constitutional_approval_granted": false,
@@ -167,9 +170,10 @@
     "no_secrets_or_personal_data_added": true,
     "implementation_or_test_evidence_found": false,
     "notes": [
-      "git status before commit showed only untracked files under docs/decisions/ADR-041 through ADR-048 and docs/reviews/.",
+      "Before the drafts commit, git status showed only untracked files under docs/decisions/ADR-041 through ADR-048 and docs/reviews/.",
+      "git diff --exit-code confirmed ADR-029 is byte-identical to the base commit.",
       "Secret scan matched the architectural word secret in new prose and in existing ADR-040. No credentials, tokens, private keys, or personal contact data were added.",
-      "head_commit and pull_request_url are filled in a follow-up commit after the branch is published. A commit cannot contain its own hash."
+      "Drafts commit d39afea28dd3240e9464f21e216a3fc3f071159d added the twelve files. This follow-up commit records the pull request URL. The pull request head SHA is that follow-up commit."
     ]
   }
 }
