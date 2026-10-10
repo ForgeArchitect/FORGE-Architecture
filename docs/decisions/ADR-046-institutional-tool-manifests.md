@@ -2,8 +2,9 @@
 
 **Status:** Proposed
 **Date:** 2026-10-09
-**Source decision queue:** DQ-020
-**Related canonical ADRs:** ADR-006, ADR-009, ADR-012, ADR-019, ADR-026, ADR-033, ADR-036, ADR-040
+**Revision:** 2026-10-10 bundle reconciliation. The exact change is in the approval record.
+**Source decision queue:** DQ-020. Bundle draft filed as ADR-053 on 2026-10-10 is the same manifest decision and is reconciled here.
+**Related canonical ADRs:** ADR-006, ADR-009, ADR-012, ADR-019, ADR-026, ADR-032, ADR-033, ADR-036, ADR-037, ADR-040
 **Constitutional approval:** Pending
 
 ## Context
@@ -35,7 +36,7 @@ Use of an unmanifested consequential capability fails closed at the enforcement 
 
 A manifest is a declaration. It is not authorization to invoke the capability. Invocation still requires the authenticated request chain, applicable institutional decisions, and a policy enforcement point.
 
-Validation evidence and health-check results are evidence. Doctor may report health. Doctor does not disable or replace a capability by fiat, and does not execute repairs. ADR-006 applies. Failed health restricts or suspends use through the ordinary containment and degraded-operation rules in ADR-011 and ADR-039.
+Validation evidence and health-check results are evidence. A simulation of a capability is evidence under ADR-037. A passing simulation is not proof of real-world safety and is not authorization to invoke the capability. ADR-032's simulation boundary still applies: a simulation with real side effects is not observational. Doctor may report health. Doctor does not disable or replace a capability by fiat, and does not execute repairs. ADR-006 applies. Failed health restricts or suspends use through the ordinary containment and degraded-operation rules in ADR-011 and ADR-039.
 
 Manifest changes that materially change permissions, reach, or risk invalidate prior authorization to invoke the old manifest, under ADR-002 and ADR-018.
 
@@ -90,6 +91,8 @@ External-tool rules in ADR-019 remain authoritative for external systems. This p
 ## Approval record (pending)
 
 No constitutional approval is recorded for this proposal.
+
+2026-10-10 revision, from the bundle draft numbered ADR-053: simulations are recorded as ADR-037 evidence, not as proof of real-world safety and not as invocation authority. The manifest duty itself is unchanged. No accepted ADR was edited.
 
 - Owner approval: Pending
 - ADR-008 amendment path: not invoked

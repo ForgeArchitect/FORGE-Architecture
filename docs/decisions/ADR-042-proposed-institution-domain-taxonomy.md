@@ -2,8 +2,9 @@
 
 **Status:** Proposed
 **Date:** 2026-10-09
+**Revision:** 2026-10-10 bundle reconciliation. The exact change is in the approval record.
 **Source decision queue:** DQ-002
-**Related canonical ADRs:** ADR-001, ADR-003, ADR-015, ADR-016, ADR-040
+**Related canonical ADRs:** ADR-001, ADR-003, ADR-005, ADR-015, ADR-016, ADR-040
 **Constitutional approval:** Pending
 
 ## Context
@@ -30,6 +31,7 @@ Until a later human-approved record says otherwise:
 6. Dispatcher remains routing ingress under ADR-002 and ADR-040. "Coordination and Dispatch" does not gain authority by routing. Gatekeeper remains admissibility evaluation and does not execute.
 7. Historian remains institutional memory under ADR-005. "Information and Knowledge Management" does not rename Historian and does not give Historian execution authority or universal approval authority. A distinct knowledge institution, if ever created, requires ADR-015 membership governance and a separate approved decision.
 8. Auditor and Watcher functions remain independent under ADR-004. They are not absorbed into Security or into Information and Knowledge Management by this taxonomy.
+9. A 2026-10-10 bundle draft would have an Information and Knowledge Management institution maintain the institutional registry through Historian, and would have a Librarian supply derived knowledge to learners. Neither name becomes an institution here. Registry custody stays with Historian under ADR-015 and ADR-005. That custody is evidence and registry validation. It is not approval of institutional existence and it is not activation. A Librarian institution, or an Information and Knowledge Management institution that holds registry authority, would be a new institution under item 7 and is not created by this record.
 
 Jurisdiction assignments for these labels stay unapproved. ADR-016 remains the rule for which institutions must participate in a consequential action.
 
@@ -78,6 +80,8 @@ This proposal does not amend ADR-040. Existing institutional names and jurisdict
 ## Approval record (pending)
 
 No constitutional approval is recorded for this proposal.
+
+2026-10-10 revision: item 9 records that the bundle's registry-holder reading of Information and Knowledge Management, and its Librarian supplier, are not adopted. Jurisdiction assignments remain unapproved. No accepted ADR was edited.
 
 - Owner approval: Pending
 - Jurisdiction assignments: still unapproved

@@ -2,8 +2,9 @@
 
 **Status:** Proposed
 **Date:** 2026-10-09
-**Source decision queue:** DQ-001
-**Related canonical ADRs:** ADR-001, ADR-003, ADR-015, ADR-027, ADR-040
+**Revision:** 2026-10-10 bundle reconciliation. The exact change is in the approval record.
+**Source decision queue:** DQ-001. Bundle draft filed as ADR-041 on 2026-10-10 is the same internal-organization decision and is reconciled here.
+**Related canonical ADRs:** ADR-001, ADR-003, ADR-004, ADR-015, ADR-017, ADR-027, ADR-040
 **Constitutional approval:** Pending
 
 ## Context
@@ -27,6 +28,7 @@ An institution may organize its internal work as a director function, department
 5. Internal organization does not manufacture votes, seats, or quorum. ADR-003 independent evaluation and ADR-015 membership rules remain in force. A director does not cast the institution's decision in place of the required members.
 6. Where ADR-003 requires members to evaluate before seeing other members' substantive votes, internal routing preserves that independence.
 7. Creating a new authority-bearing seat remains a governed membership event under ADR-015. Naming a specialist does not activate a seat.
+8. Institutional outputs are evidence-backed. An output used as an institutional result shows the evidence it relies on. This record does not define citation syntax. The output is evidence of work performed. It is not execution authority and not a vote. ADR-004 and ADR-017 still govern attestation and custody.
 
 This record does not require every institution to adopt this internal shape. Where an institution uses it, the limits above apply.
 
@@ -79,10 +81,14 @@ If a later human decision would give a director binding authority over the insti
 - Whether "director" is a seat, a rotating duty, or a non-voting coordinator.
 - How internal routing interacts with request witnessing. DQ-005's director-routing phrase is not adopted here as a substitute for Watchers or Auditors. See the coverage matrix.
 - What minimum independent diversity ADR-003 requires when specialists share one department's model, host, or prompt.
+- The 2026-10-10 bundle asked how director failure and a specialist quorum would work without weakening independent audit. Director failure remains the failure mode already stated in this ADR. A specialist quorum is not proposed. Specialists remain non-voting workers under ADR-027.
+- Closed pull request #2 proposed department and specialist as numbered layers 11 and 12 beyond ADR-040. That proposal was not merged. This ADR does not adopt those layer numbers, the example institution, or that template.
 
 ## Approval record (pending)
 
 No constitutional approval is recorded for this proposal.
+
+2026-10-10 revision, from the bundle draft that used this same number for the same topic: item 8 requires evidence-backed institutional outputs. A specialist quorum was not added. Pull request #2's unmerged layer numbering was not added. No other rule in this ADR changed.
 
 - Owner approval: Pending
 - ADR-008 amendment path: not invoked

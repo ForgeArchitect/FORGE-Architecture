@@ -2,8 +2,9 @@
 
 **Status:** Proposed
 **Date:** 2026-10-09
-**Source decision queue:** DQ-017
-**Related canonical ADRs:** ADR-003, ADR-005, ADR-010, ADR-020, ADR-027, ADR-030, ADR-040
+**Revision:** 2026-10-10 bundle reconciliation. The exact change is in the approval record.
+**Source decision queue:** DQ-017. Bundle draft filed as ADR-051 on 2026-10-10 is the same memory-class decision and is reconciled here.
+**Related canonical ADRs:** ADR-003, ADR-005, ADR-010, ADR-020, ADR-026, ADR-027, ADR-030, ADR-040
 **Constitutional approval:** Pending
 
 ## Context
@@ -26,7 +27,7 @@ FORGE memory used by institutions is divided into the following classes.
 2. Case working memory. Facts, drafts, and intermediate reasoning for one case. This class expires with the case authorization, the applicable retention policy, or an earlier revocation, whichever comes first. Expiration removes it from working use. Governance-critical evidence that must be retained follows ADR-017 and ADR-020 rather than remaining in working memory.
 3. Case-isolated review context. A reviewer, Auditor, Watcher, or independent member receives a governed review view. The review view contains what that role needs. It does not automatically include another member's unshared deliberation when ADR-003 requires independent evaluation first.
 4. Historian long-term history. Append-oriented institutional history under ADR-005. Historian preserves this class. Historian does not execute from it and does not approve current actions by returning it.
-5. Governed retrieval. Reading any class is an access decision under ADR-020. Retrieval for a consequential use is bound to the current authenticated request under ADR-002 and ADR-030. Retrieved history is evidence or context. It is not a reusable authorization.
+5. Governed retrieval. Reading any class is an access decision under ADR-020. Retrieval is mediated and purpose-limited. It is logged. This ADR does not define log fields. ADR-020 access auditing and ADR-026 apply where the access is governance-relevant. Retrieval for a consequential use is bound to the current authenticated request under ADR-002 and ADR-030. Retrieved history is evidence or context. It is not a reusable authorization. Case-isolated reviewers do not carry another case's memory into a new decision. Cross-case reading requires its own access decision.
 
 Cross-class promotion is governed. A case fact becomes professional competence only through the learning path in ADR-010, not by remaining in a context window. A working-memory item becomes long-term history only when a preservation rule says it is governance evidence.
 
@@ -75,10 +76,13 @@ This proposal specializes ADR-020, ADR-005, ADR-010, and ADR-003. It does not am
 - The default lifetime of case working memory when a case goes idle.
 - Whether professional competence is per institution, per seat, or per model artifact, and how ADR-015 succession treats it.
 - How this class model relates to opt-in conversation retention in ADR-045. Conversation buffers are not Historian history unless a preservation rule promotes them.
+- The 2026-10-10 bundle asks to distinguish long-term professional skills from raw episodic memory. That distinction is the class split in items 1 and 2. What remains open is the earlier question of whether professional competence is kept per institution, per seat, or per model artifact.
 
 ## Approval record (pending)
 
 No constitutional approval is recorded for this proposal.
+
+2026-10-10 revision, from the bundle draft numbered ADR-051: governed retrieval is logged, and case-isolated reviewers do not carry case memory into a new decision. Log fields were not invented. The competence-versus-episodic distinction was already this ADR's class split. No accepted ADR was edited.
 
 - Owner approval: Pending
 - ADR-008 amendment path: not invoked

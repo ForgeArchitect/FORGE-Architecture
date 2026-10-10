@@ -2,8 +2,9 @@
 
 **Status:** Proposed
 **Date:** 2026-10-09
-**Source decision queue:** DQ-009. DQ-010 is applied only as already-accepted replay and provenance law; it is not an independent new decision.
-**Related canonical ADRs:** ADR-004, ADR-005, ADR-009, ADR-017, ADR-018, ADR-029, ADR-035, ADR-039
+**Revision:** 2026-10-10 bundle reconciliation. The exact change is in the approval record.
+**Source decision queue:** DQ-009. DQ-010 is applied only as already-accepted replay and provenance law; it is not an independent new decision. Bundle draft filed as ADR-046 on 2026-10-10 is the same Synchro decision and is reconciled here.
+**Related canonical ADRs:** ADR-002, ADR-004, ADR-005, ADR-009, ADR-017, ADR-018, ADR-029, ADR-035, ADR-039
 **Constitutional approval:** Pending
 
 ## Context
@@ -22,12 +23,12 @@ A capability can be copied, delayed, or presented with a substituted scope if th
 
 FORGE may use a Synchro record for a consequential capability only under the following proposed rules.
 
-1. A Synchro is bound to one authenticated request and one exact action scope, including the actor authorized to present it, a nonce, an expiration, and the issuance lineage.
+1. A Synchro is bound to one authenticated request and one exact action scope, including the actor authorized to present it, a nonce, an expiration, and the issuance lineage. For a consequential redemption, that actor is the FORGE execution process. An institution does not redeem the Synchro by holding it. The binding is to one immutable payload. Substituting the payload produces a different object.
 2. It is single-use. Atomic consumption invalidates any further presentation of that Synchro. A consumed, expired, revoked, or mismatched Synchro is non-redeemable evidence. Historian may preserve that evidence under ADR-005 and ADR-017. Preservation does not redeem it. ADR-029 already states that Historian does not create current authorization by replaying old records.
 3. The three attestations are distinct claims:
-   - Historian attests evidence and registry lineage only. That attestation is not approval of the action and is not execution authority.
-   - Auditor attests integrity of the record and its binding to the authorization chain. An audit attestation is not the substantive institutional decision. ADR-004 applies.
-   - Security attests the security posture relevant to scope, compromise status, and presentation, within Security's jurisdiction. Security does not gain universal authority. ADR-039 applies.
+   - Historian attests evidence, registry lineage, and the freshness of that lineage evidence. Freshness means the lineage evidence is current as evidence. It is not a second expiration rule. Expiration remains ADR-018. The attestation is not approval of the action and is not execution authority.
+   - Auditor attests process integrity of the record and its binding to the authorization chain. An audit attestation is not the substantive institutional decision. ADR-004 applies.
+   - Security may attest that the security conditions for issuance were satisfied, and attests the security posture relevant to scope, compromise status, and presentation, within Security's jurisdiction. That issuance attestation does not make Security the source of governing authority. Security does not gain universal authority. ADR-039 applies.
 4. Jurisdictional authorization remains necessary. A Synchro does not replace Banker, Engineer, Doctor, or any other institution required by ADR-016 and ADR-032. It does not replace Gatekeeper admissibility or the FORGE execution process.
 5. Presentation checks fail closed when lineage, scope, actor, nonce, expiration, or signatures do not match. Replay and mismatch are quarantined as evidence. They are not retried into success.
 6. Material change to scope, actor, request, or target produces a different action and requires a new Synchro. ADR-002 and ADR-018 apply.
@@ -79,12 +80,16 @@ DQ-010's replay and provenance checks are already baseline law. Accepting or rej
 
 - Whether every consequence tier in ADR-032 requires a Synchro, or only tiers above a human-approved threshold. This ADR does not set that threshold.
 - Whether failed attempts always consume a Synchro at every tier. ADR-018 already distinguishes high-risk uncertainty from ordinary policy. The tier mapping is open.
-- Which key-management practice under ADR-035 signs each attestation.
+- Which key-management practice under ADR-035 signs each attestation, and how those signer keys are separated. The 2026-10-10 bundle asks for that separation to be specified. It is not specified here.
+- What additional response follows compromise of a signer. Revocation, stale Security attestations, and ADR-039 already apply. The operational procedure beyond those rules is open. This ADR does not invent one.
+- How atomic redemption is implemented. The rule remains atomic consumption, including the partial-consumption failure mode already stated. The mechanism is not specified here.
 - Whether additional jurisdictional signatures are required on the same object. This ADR does not forbid them and does not make the three attestations a complete authorization set.
 
 ## Approval record (pending)
 
 No constitutional approval is recorded for this proposal.
+
+2026-10-10 revision, from the bundle draft numbered ADR-046: consequential redemption is bound to the FORGE execution process; Historian's attestation includes freshness of lineage evidence and still is not approval; Security may attest issuance conditions without becoming the governing authority; open questions now include signer key separation, compromised-signer procedure, and the atomic-redemption mechanism. No accepted ADR was edited. Replay law is unchanged.
 
 - Owner approval: Pending
 - ADR-008 amendment path: not invoked
