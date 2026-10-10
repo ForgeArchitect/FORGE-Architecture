@@ -1,6 +1,6 @@
 # FORGE ADR Coverage Matrix
 
-**Date:** 2026-10-09
+**Date:** 2026-10-09 audit. Bundle reconciliation added 2026-10-10. The 2026-10-09 findings below are unchanged history. The bundle section at the end is the later pass.
 **Repository:** https://github.com/ForgeArchitect/FORGE-Architecture
 **Baseline commit audited:** `3229df7bea351517921a6251f15a0abb049c4019` (`main`, subject `FORGE v1.0 constitutional architecture baseline`)
 **Queue source:** conversation-derived candidates DQ-001 through DQ-024, packaged as `FORGE_GROK_ADR_HANDOFF`. The handoff manifest states `constitutional_approval_granted: false`.
@@ -418,3 +418,119 @@ Human approval is required before any proposed ADR can become Accepted, and befo
 | ADR-048 | DQ-022 | Local-First Hybrid Posture |
 
 Existing ADR files were not edited, renumbered, or overwritten.
+
+## Bundle reconciliation (2026-10-10)
+
+A second package arrived after the audit above. It contains 17 drafts numbered ADR-040 through ADR-056, plus `README_FIRST.md`, `GROK_CODEX_INSTRUCTIONS.md`, and `MANIFEST.json`. The manifest says the drafts are proposed and conversation-derived, and that the canonical repository was not verified. The package assumed GitHub ended at ADR-039 and that ADR-040 was free for the v1.0 baseline.
+
+That assumption is false. `main` at `3229df7bea351517921a6251f15a0abb049c4019` already has ADR-001 through ADR-040, all Accepted. ADR-040 is the v1.0 Constitutional Architecture Baseline. This branch already had proposed ADR-041 through ADR-048, on topics that do not match the bundle's reuse of those numbers. Accepted files were not edited. The bundle's ADR-040 was not added. Where a bundle draft added a rule to a proposed ADR already on this branch, that proposed ADR was revised and the change is stated in its approval record. Genuinely new decisions are Proposed ADR-049, ADR-050, and ADR-051. Closed pull request #2, the unmerged institution template, was used only as context for ADR-041. Its layer numbers were not adopted.
+
+The whitepaper and `CHANGELOG.md` were not edited. Where they differ from ADR-001 through ADR-040, the accepted ADRs prevail, as in the 2026-10-09 audit.
+
+| Bundle draft | Outcome | Where it landed |
+| --- | --- | --- |
+| ADR-040 v1.0 constitutional architecture baseline | Duplicate of Accepted ADR-040 | Not added |
+| ADR-041 universal multi-agent institutional model | Merges into proposed ADR-041 | Revised. Evidence-backed outputs added. Specialist quorum not adopted |
+| ADR-042 institutional registry and governed expansion | Already covered by ADR-015, ADR-005, and ADR-006. Conflicts with ADR-015 if Information and Knowledge Management or Historian approves creation | Proposed ADR-042 item 9 refuses that reading. No new ADR |
+| ADR-043 mediated institutional communication and dispatch | Covered for transport and for the ban on unrestricted internal access. Conflicts with ADR-029 if every lateral query and peer message is forbidden. Specialized dispatchers stay an implementation constraint on the single ingress | No new ADR. ADR-029 not edited |
+| ADR-044 request fanout and clarification aggregation | Principle already covered by ADR-002, ADR-021, ADR-030, ADR-031, and ADR-020. The package protocol remains an implementation specification | No new ADR |
+| ADR-045 jurisdictional risk-based authorization matrix | Principle covered by ADR-016 and ADR-032. The concrete matrix is absent from the draft and was not invented. Lifecycle checks point at proposed ADR-047 | No new ADR |
+| ADR-046 Synchro provenance and multi-institution attestation | Merges into proposed ADR-043 | Revised. Executor-bound redemption, Historian freshness as evidence, Security issuance attestation without governing authority. Key separation, compromised-signer procedure, and redemption mechanism left open |
+| ADR-047 compromise quarantine and dormant replacement | Implementation specification under ADR-039 and ADR-015. Conflicts with ADR-015 if the replacement activates outside membership governance or manufactures quorum | No new ADR |
+| ADR-048 governed recovery and reinstatement | Implementation specification under ADR-005, ADR-006, ADR-014, ADR-039, and ADR-004. Conflicts with ADR-005 if Historian's attestation restores the system | No new ADR |
+| ADR-049 fault codes, degradation, and safe mode | Terminology conflict with ADR-036, ADR-039, and ADR-011 if used as a second state machine. Numeric thresholds are absent and were not invented | No new ADR |
+| ADR-050 risk-based fast lane and resource scheduling | Fast lane covered by ADR-032 together with ADR-019, ADR-020, and ADR-033. Resource bounds covered by ADR-012. Who may mark work urgent is unresolved | No new ADR. See HD-B050 |
+| ADR-051 institutional memory and scoped historical retrieval | Merges into proposed ADR-044 | Revised. Governed retrieval is logged. Log fields not specified |
+| ADR-052 recipient-bound continuous education | Implementation specification under ADR-010. Librarian is not an institution | Refused in proposed ADR-042 item 9. No new ADR |
+| ADR-053 verified institutional toolsets and evidence | Merges into proposed ADR-046. "Simulations are not proof" is already ADR-037 | ADR-046 now cites ADR-037 |
+| ADR-054 institutional encrypted backup and selective recovery | Genuinely new | Proposed ADR-049 |
+| ADR-055 independent forensic evidence and OS compromise recovery | Genuinely new | Proposed ADR-050 |
+| ADR-056 protected computing domains and external defense perimeter | Genuinely new | Proposed ADR-051 |
+
+### Bundle ADR-040 — duplicate
+
+The draft would freeze ADR-001 through ADR-040 once canonical text is verified. Accepted ADR-040 already does that. Adding the draft would overwrite or fork the baseline. It was not added.
+
+### Bundle ADR-041 — merge into proposed ADR-041
+
+The draft's director, departments, specialists, bounded internal roles, and the limit that directors cannot create constitutional authority are DQ-001, already proposed. The revision adds evidence-backed outputs, which the earlier text did not state. Director failure was already a failure mode. A specialist quorum would manufacture votes under ADR-003 and ADR-015, so it was not added. Pull request #2's layers 11 and 12 were not added.
+
+### Bundle ADR-042 — covered, with an ADR-015 conflict if misread
+
+Historian registry evidence, FORGE proposing, Engineer preparing, separate activation, and FORGE executing an authorized activation are ADR-015, ADR-006, and ADR-005. The 2026-10-09 audit classified this as DQ-008, covered, with Historian limited to evidence. The bundle names Information and Knowledge Management as the registry holder. Proposed ADR-042 already refuses to turn that label into an institution. Item 9 now says so for this draft, and also refuses the Librarian name that arrives in bundle ADR-052. No activation power was given to Historian.
+
+### Bundle ADR-043 — covered transport, unresolved ADR-029 amendment
+
+Typed authenticated packages, no unrestricted memory, filesystem, sandbox, credential, or RPC access, and Dispatcher and Gatekeeper mediation of consequential requests are ADR-029, ADR-002, ADR-020, and ADR-019. The whitepaper Appendix A still locks a single controlled ingress. Specialized dispatchers that authorize, or that become extra ingress authorities, contradict that lock. They remain the DQ-003 implementation constraint.
+
+The draft also says cross-institution requests and results travel through Dispatcher and Gatekeepers. Read as a ban on the peer messages and institutional queries ADR-029 permits, that sentence would amend ADR-029. No such amendment was drafted. ADR-029 was not edited. See the conflicts document.
+
+### Bundle ADR-044 — covered principle, unspecified protocol
+
+An immutable request reference is ADR-002 and ADR-017. Delegation to specialists is proposed ADR-041 and ADR-027. Structured clarification that FORGE consolidates, checks against authorized history, asks the user, and routes back is ADR-031, ADR-030, ADR-021, and ADR-020. FORGE still may not synthesize an institutional decision under ADR-029. Witness visibility limited to necessary metadata is ADR-020 and ADR-004. The package format was not specified in the draft and was not invented. This remains DQ-006.
+
+### Bundle ADR-045 — covered principle, no matrix
+
+Required participants that vary by action, risk, environment, and jurisdiction are ADR-016 and ADR-032. A fixed universal approval list for ordinary actions would contradict that, and the draft rejects such a list. The draft does not supply the grid. None was written. "Agent lifecycle operations have specialized mandatory checks" points at proposed ADR-047, which already says its four claims are not a complete authorization set. Human approval thresholds remain HD-007.
+
+### Bundle ADR-046 — merge into proposed ADR-043
+
+Single-use, short-lived, request-bound and action-bound Synchro with distinct Security, Auditor, and Historian claims, authority still coming from governing approvals, is DQ-009 and DQ-010. The revision binds consequential redemption to the FORGE execution process, includes freshness of lineage evidence in the Historian attestation without making freshness an approval, and allows Security to attest issuance conditions without becoming the source of governing authority. Signer key separation, the compromised-signer procedure, and the atomic-redemption mechanism are open. They were not specified.
+
+### Bundle ADR-047 — implementation specification, ADR-015 guard
+
+Containment, credential revocation, forensic preservation, and a dormant clean replacement that stays inactive until the compromise path is addressed and a clean baseline is verified are a pattern for ADR-039 recovery preconditions and ADR-015 quarantine and activation. The replacement cannot restore itself under ADR-015. Activation remains a governed membership event. Using it to manufacture quorum is already forbidden. "Scope expands if shared trust boundaries cannot be established" is ADR-039's refusal to assume the smallest blast radius. The expanded set was not invented. This remains DQ-011.
+
+### Bundle ADR-048 — implementation specification, ADR-005 guard
+
+Health stability, security containment, fresh keys, engineering repair, Historian evidence, Auditor process, multiple independent reviews in critical cases, and FORGE-only execution restate ADR-006, ADR-014, ADR-035, ADR-005, ADR-004, and ADR-039. "Multiple" is not a number in the draft, and no quorum figure was invented. Fresh keys are credential recovery under ADR-014 and ADR-035, not a new institution. Historian attests evidence and does not restore. This remains DQ-012.
+
+### Bundle ADR-049 — conflict with the accepted state machines
+
+Pending, confirmed, restricted, and safe mode are not the ADR-036 health states or the ADR-039 incident states. ADR-011 already defines degraded operation as reduced authority chosen in advance. A second constitutional state machine was not drafted. Severity, type, confidence, persistence, and institutional criticality may inform escalation only as inputs to those accepted machines. The draft says numeric scoring thresholds are not finalized and must not be invented. None were invented. Immediate containment of a critical active threat is already ADR-039, and human-life HARD STOP is ADR-007. A delay that held an ADR-007 HARD STOP would be a conflict. The draft does not propose that delay. This remains DQ-013 and DQ-014.
+
+### Bundle ADR-050 — fast lane covered, scheduler unresolved
+
+Low-consequence informational requests with authentication, privacy, provenance, and tool boundaries kept in force are ADR-032 Tier 0 and Tier 1, plus ADR-020, ADR-019, ADR-033, and ADR-035. The draft's own limit, that the fast lane never permits consequential execution without authorization, is that baseline. Bounded resources are ADR-012. "Urgent work is prioritized over background analysis" does not say who may mark work urgent. A self-declared urgent label cannot waive ADR-032 or ADR-012. The scheduling rule is an implementation question, HD-B050, not a new ADR.
+
+### Bundle ADR-051 — merge into proposed ADR-044
+
+Bounded professional competence, expiring task context, Historian custody of authorized history, case-isolated reviewers, and mediated purpose-limited retrieval are DQ-017. The revision states that governed retrieval is logged and that a case-isolated reviewer does not carry case memory into a new decision. Log fields are not in the draft and were not invented. The skills-versus-episodic distinction is the class split already in ADR-044.
+
+### Bundle ADR-052 — implementation specification under ADR-010
+
+Teacher specialists, signed recipient-specific packages, a recipient sandbox, and the rule that learning never creates authority are ADR-010. Direct internal access remains forbidden by ADR-010, ADR-020, and ADR-029. One teacher assignment per agent remains HD-019. Librarian is not an accepted institution. Proposed ADR-042 item 9 does not create one. "Approved derived knowledge" does not name an approver. No approver was invented.
+
+### Bundle ADR-053 — merge into proposed ADR-046
+
+Declared scoped manifests, version, permissions, health validation, and evidence requirements are DQ-020. The draft's sentence that simulations are evidence and not proof of real-world safety is ADR-037, cited from ADR-046 in this pass. The manifest is still not invocation authority. Installing tools or activating cloud services is outside both records.
+
+### Bundle ADR-054 — new proposed ADR-049
+
+Per-institution separately protected checkpoints, an owner-approved encrypted recovery vault, selective restore only when isolation is verified, and a compatibility manifest are not required as a set by ADR-005, ADR-014, or ADR-020, though each of those ADRs constrains them. ADR-049 records the set without a product, an algorithm, a key hierarchy, or a manifest schema. A backup hash is not proof the checkpoint was uncompromised. Automatic replication exists only inside an owner-approved vault policy, so it does not waive ADR-020. The vault does not federate ADR-028 deployments and does not give Historian restoration authority.
+
+### Bundle ADR-055 — new proposed ADR-050
+
+An append-only security-event vault with credentials independent of the local host, broader containment on operating-system or shared-trust-root compromise, and a preprovisioned cloud recovery path that refuses instructions and secrets from the compromised host are not specified in ADR-017, ADR-023, ADR-039, or ADR-014. Those records supply the limits: evidence is not authority, blast radius is not assumed small, root-of-trust implementation is not fixed, split-brain reduces autonomy, and a remote path does not inherit local authority. ADR-050 states the new duties and leaves the host-independent root of trust, the split-brain procedure, the clean-restore checks, and the width of broader containment unspecified.
+
+### Bundle ADR-056 — new proposed ADR-051
+
+FORGE core, desktop operating system, untrusted research, and a security gateway, separated under a bare-metal hypervisor or dedicated hardware, are not in ADR-040, ADR-038, or the whitepaper. ADR-038 isolates promotion environments. ADR-019 draws a conceptual constitutional boundary. ADR-051 keeps those, separates traffic enforcement from Gatekeeper admissibility, preserves single ingress, and refuses to treat the domains as new institutions or as extra FORGE deployments under ADR-028. It claims no perfect isolation. The shared hypervisor and management plane stay critical trust dependencies. No product is named.
+
+## Proposed ADR index after the bundle pass
+
+| ADR | Source | Title | This pass |
+| --- | --- | --- | --- |
+| ADR-041 | DQ-001, bundle ADR-041 | Internal Institutional Organization | Revised |
+| ADR-042 | DQ-002, bundle ADR-042 and ADR-052 names refused | Proposed Institution Domain Taxonomy | Revised |
+| ADR-043 | DQ-009, bundle ADR-046 | Synchro Single-Use Attestation Record | Revised |
+| ADR-044 | DQ-017, bundle ADR-051 | Memory Class Boundaries | Revised |
+| ADR-045 | DQ-018 | Opt-In Rolling Retention | Unchanged |
+| ADR-046 | DQ-020, bundle ADR-053 | Institutional Tool Manifests | Revised |
+| ADR-047 | DQ-021 | Lifecycle Claim Separation for Upgrade, Rollback, and Release | Unchanged |
+| ADR-048 | DQ-022 | Local-First Hybrid Posture | Unchanged |
+| ADR-049 | Bundle ADR-054 | Institutional Encrypted Backup and Selective Recovery | New, Proposed |
+| ADR-050 | Bundle ADR-055 | Independent Forensic Evidence and OS Compromise Recovery | New, Proposed |
+| ADR-051 | Bundle ADR-056 | Protected Computing Domains and External Defense Perimeter | New, Proposed |
+
+Accepted ADR-001 through ADR-040 were not edited, renumbered, or overwritten. Every ADR-041 through ADR-051 record remains `Status: Proposed` with constitutional approval Pending.

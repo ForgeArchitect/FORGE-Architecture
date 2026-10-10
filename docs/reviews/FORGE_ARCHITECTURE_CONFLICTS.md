@@ -1,6 +1,6 @@
 # FORGE Architecture Conflicts
 
-**Date:** 2026-10-09
+**Date:** 2026-10-09 audit. Bundle conflicts added 2026-10-10. Sections 1 through 9 are unchanged history.
 **Repository:** https://github.com/ForgeArchitect/FORGE-Architecture
 **Baseline:** ADR-001 through ADR-040, all Accepted, frozen as the v1.0 baseline by ADR-040. Commit `3229df7bea351517921a6251f15a0abb049c4019`.
 
@@ -113,3 +113,87 @@ These records are older or narrower than ADR-040. They were not edited. Accepted
 No queue item is an implemented fact in this repository. There is no application code, no test run, and no deployment. Proposed ADRs that describe local-first operation, recording, Synchro, tool manifests, or internal directors describe design. They do not describe a running FORGE.
 
 ADR-029's historical text was left unchanged on purpose. Reconciliation for the mesh-as-transport reading is in section 1 of this file and in the coverage matrix. It is not a silent rewrite.
+
+## 10. Bundle ADR-040 duplicates the Accepted baseline
+
+The bundle's ADR-040 would restate the v1.0 freeze as a proposed record and says it supersedes nothing automatically. Accepted ADR-040 already freezes ADR-001 through ADR-040. Writing the bundle file at that path would overwrite the Accepted record.
+
+**Drafting decision.** The bundle file was not added. ADR-040 on `main` and on this branch remains the Accepted text from commit `3229df7bea351517921a6251f15a0abb049c4019`.
+
+## 11. Bundle ADR-043 reopens the ADR-029 peer-message conflict
+
+**Bundle rule.** Cross-institution requests and results travel as typed authenticated packages through Dispatcher and Gatekeepers. The draft also forbids unrestricted direct memory, filesystem, sandbox, credential, or RPC access, and it asks to reconcile peer-mesh language so that transport is not internal access.
+
+**Accepted rule.** Section 1 of this file. ADR-029 permits constitutionally allowed peer communication and jurisdictional queries. Those messages still do not execute. ADR-020 forbids the unrestricted internal access. The whitepaper Appendix A locks a single controlled ingress.
+
+**Reconciliation that does not amend ADR-029.** Unrestricted internal access stays forbidden. Consequential requests still enter through Dispatcher. Gatekeeper still judges admissibility. Specialized dispatchers, if any, are workers of that one ingress and do not authorize. That is the DQ-003 constraint in section 5.
+
+**Unresolved remainder.** A requirement that every result and every lateral query also pass Dispatcher and Gatekeeper would amend the peer-communication and query sections of ADR-029. That amendment was not drafted. See HD-004 and HD-B043.
+
+## 12. Bundle ADR-042 and the Librarian name versus ADR-015
+
+**Bundle rule.** An Information and Knowledge Management institution maintains registry evidence through Historian. FORGE proposes institutions, engineering designs, other jurisdictions attest, and FORGE executes authorized activation. A later bundle draft, numbered ADR-052, has Librarian and Historian supply derived knowledge.
+
+**Accepted rule.** ADR-015 governs membership creation and keeps activation distinct from provisioning. Engineer does not appoint. Historian preserves membership history and does not appoint. ADR-005 limits Historian to evidence. Section 2 of this file already rejects Historian as the approver of creation.
+
+**Treatment.** Proposed ADR-042 item 9, added in this pass, refuses both the registry-holder institution and Librarian. The compatible reading, Historian as evidence custodian, stays covered. If the owner wants Historian or a new knowledge institution to approve existence, that choice conflicts with ADR-015 and ADR-005 and requires ADR-008. It was not drafted. See HD-008 and HD-B042.
+
+## 13. Bundle ADR-047 dormant replacement versus ADR-015
+
+**Bundle rule.** Prepare a dormant clean replacement and do not activate it until the compromise path is addressed and a clean baseline is verified. Quarantine scope expands if a shared trust boundary cannot be established.
+
+**Accepted rule.** ADR-015 quarantine: a quarantined member cannot restore itself, and re-entry is governed. ADR-015 forbids vote manufacturing. ADR-015 activation is a distinct transition. ADR-039 sets recovery preconditions and forbids assuming the smallest blast radius when it is unknown.
+
+**Conflict if misread.** Activating the replacement without the membership process, or activating it to replace a dissenting quorum, amends ADR-015. An automatic expansion rule with an invented scope list would also be new policy.
+
+**Treatment.** No new ADR. The pattern remains an implementation specification. The widened set was not invented. See HD-011 and HD-B047.
+
+## 14. Bundle ADR-048 reinstatement versus ADR-005
+
+**Bundle rule.** Historian attests recovery evidence, and FORGE alone executes authorized restoration. Health, Security, Engineering, and Auditor each verify their own question. Critical cases require multiple independent reviews.
+
+**Accepted rule.** ADR-005: Historian does not restore. ADR-014 and ADR-039 already split recovery duties. ADR-004 supplies independent review. ADR-035 and ADR-014 cover fresh keys. "Multiple" is not quantified in the draft.
+
+**Treatment.** No new ADR. The checklist remains DQ-012. Historian's attestation is evidence only. No review count was invented. See HD-012 and HD-B048.
+
+## 15. Bundle ADR-049 fault vocabulary versus ADR-036, ADR-039, and ADR-011
+
+The bundle repeats section 4. Pending, confirmed, restricted, and safe mode are not adopted as constitutional states. Safe mode, if the owner later names it, has to be an ADR-011 degraded mode. Threshold numbers are not in the draft and were not invented. Immediate containment of a critical active threat fits ADR-039. A debounce that delayed an ADR-007 HARD STOP would conflict with ADR-007. The bundle draft does not propose that debounce. See HD-013, HD-014, and HD-B049.
+
+## 16. Bundle ADR-054 vault versus ADR-020 and ADR-028
+
+**Bundle rule.** Automatically replicate each institution's checkpoints to an owner-approved encrypted recovery vault. Restore only the affected trust domain when isolation is verified. Keep cross-institution compatible recovery manifests. A valid backup hash does not prove the checkpoint is uncompromised.
+
+**Accepted constraints.** ADR-020: replication is exposure and should be intentional and attributable. Backups remain governed. ADR-028: deployments do not share authority unless federation is governed. ADR-005 and ADR-014: a checkpoint's existence or label is not sufficient trust, and Historian does not restore. ADR-005 also prefers the smallest safe scope and binds authorization to that scope.
+
+**Nature of the conflict.** Ungoverned automatic copying would contradict ADR-020. A vault that restores one deployment with another's authority would contradict ADR-028. A hash-only trust decision would contradict ADR-005 and ADR-014. A rule that forbade whole-system recovery would contradict ADR-005 and ADR-014.
+
+**Treatment.** This one was drafted, because a compatible rule exists. Proposed ADR-049 allows replication only inside an owner-approved vault policy, partitions checkpoints by institution, refuses cross-deployment authority, refuses hash-only trust, and leaves whole-system recovery in place when isolation is not verified. The manifest schema, algorithm, and positive uncompromised-checkpoint test are open. If the owner wants ungoverned replication or cross-deployment restore, ADR-049 cannot be accepted as written.
+
+## 17. Bundle ADR-055 cloud recovery versus ADR-028 and local authority
+
+**Bundle rule.** Replicate security events to an append-only vault with credentials independent of the local host. Operating-system or shared-trust-root compromise triggers broader containment. Cloud recovery is preprovisioned and restricted, and it cannot accept instructions or secrets from the compromised host.
+
+**Accepted constraints.** ADR-028: a remote deployment does not inherit local authority. ADR-001, ADR-033, and ADR-040: consequential execution stays in the governed FORGE path. ADR-021: untrusted content is not instruction. ADR-023: split-brain reduces autonomy and does not create parallel governments. ADR-039: do not assume the smallest blast radius. ADR-014: compromised components do not clear themselves.
+
+**Nature of the conflict.** A cloud recovery path that takes commands or secrets from the compromised host, or that executes as the local FORGE because it holds a copy, contradicts those rules. Treating operating-system compromise as a single institution's quarantine contradicts ADR-039 when the blast radius is unknown.
+
+**Treatment.** Proposed ADR-050 states the host-independent replica, the broader-containment trigger, and the refusal of compromised-host instructions and secrets. It does not provision a cloud provider, does not list the widened containment set, and does not invent the independent root of trust, the split-brain procedure, or the clean-restore checks the draft says are still required. Proposed ADR-048, unchanged in this pass, still forbids direct cloud execution against the local deployment if that ADR is accepted.
+
+## 18. Bundle ADR-056 domains versus single ingress and ADR-028
+
+**Bundle rule.** Separate FORGE core, desktop operating system, untrusted research, and a security gateway. The network gateway enforces traffic. Gatekeepers enforce constitutional authority. Preference is a bare-metal hypervisor or dedicated hardware. Shared hypervisor and management plane remain trust dependencies. Isolation is not perfect.
+
+**Accepted constraints.** ADR-002, ADR-040, and the whitepaper Appendix A: one controlled ingress. Dispatcher routes and does not authorize. Gatekeeper judges admissibility and does not execute. ADR-028: another FORGE is another trust domain unless federation is governed. ADR-015: a name is not an institution. ADR-038: environment promotion is its own governed boundary.
+
+**Nature of the conflict.** A gateway that authorizes because it passed traffic would be a second ingress and a second Gatekeeper. Four domains operated as four FORGE deployments would be federation without an ADR-028 agreement. Domain placement is not production promotion.
+
+**Treatment.** Proposed ADR-051 keeps traffic enforcement and constitutional admissibility apart, preserves the single ingress, and keeps the domains inside one deployment. It creates no institution and no federation. It chooses neither hypervisor nor dedicated hardware. Rejecting it leaves host layout open, including under proposed ADR-048.
+
+## 19. What the bundle did not reopen
+
+The bundle does not repeat DQ-023's exclusive one-FORGE-per-person rule. Section 3 stands. ADR-028 is not narrowed.
+
+The bundle does not supply the concrete signer matrix DQ-007 left unapproved. No matrix was added to proposed ADR-047 or written as a new ADR.
+
+Closed pull request #2's department and specialist layer numbers are not part of proposed ADR-041. That pull request was not merged and is not a constitutional record.

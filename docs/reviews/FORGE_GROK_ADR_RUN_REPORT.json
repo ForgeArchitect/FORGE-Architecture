@@ -176,5 +176,51 @@
       "Secret scan matched the architectural word secret in new prose and in existing ADR-040. No credentials, tokens, private keys, or personal contact data were added.",
       "Drafts commit d39afea28dd3240e9464f21e216a3fc3f071159d added the twelve files. This follow-up commit records the pull request URL. The pull request head SHA is that follow-up commit."
     ]
+  },
+  "bundle_reconciliation_2026_10_10": {
+    "package": "owner zip, 17 drafts ADR-040 through ADR-056",
+    "bundle_assumption": "Repository ended at ADR-039 and ADR-040 was free. That assumption was false.",
+    "accepted_baseline_untouched": "ADR-001 through ADR-040",
+    "branch": "cursor/forge-adr-bundle-reconcile-090c",
+    "base_branch": "cursor/forge-adr-continuation-a242",
+    "constitutional_approval_granted": false,
+    "merged": false,
+    "live_installation_modified": false,
+    "new_proposed_adrs": ["ADR-049", "ADR-050", "ADR-051"],
+    "revised_proposed_adrs": ["ADR-041", "ADR-042", "ADR-043", "ADR-044", "ADR-046"],
+    "unchanged_proposed_adrs": ["ADR-045", "ADR-047", "ADR-048"],
+    "mapping": [
+      {"bundle": "ADR-040", "outcome": "duplicate of Accepted ADR-040", "record": null},
+      {"bundle": "ADR-041", "outcome": "merges into proposed ADR-041", "record": "ADR-041"},
+      {"bundle": "ADR-042", "outcome": "covered by ADR-015, ADR-005, and ADR-006; conflicts with ADR-015 if a knowledge institution or Historian approves creation", "record": "ADR-042 item 9 refuses the reading"},
+      {"bundle": "ADR-043", "outcome": "covered transport reading; conflicts with ADR-029 if peer messages and queries are banned", "record": null},
+      {"bundle": "ADR-044", "outcome": "covered principle; implementation specification", "record": null},
+      {"bundle": "ADR-045", "outcome": "covered principle; matrix not invented", "record": null},
+      {"bundle": "ADR-046", "outcome": "merges into proposed ADR-043", "record": "ADR-043"},
+      {"bundle": "ADR-047", "outcome": "implementation specification; conflicts with ADR-015 if replacement skips membership or manufactures quorum", "record": null},
+      {"bundle": "ADR-048", "outcome": "implementation specification; conflicts with ADR-005 if Historian restores", "record": null},
+      {"bundle": "ADR-049", "outcome": "conflicts with ADR-036, ADR-039, and ADR-011 if adopted as a second state machine; thresholds not invented", "record": null},
+      {"bundle": "ADR-050", "outcome": "fast lane covered; urgent scheduler unresolved", "record": "HD-B050"},
+      {"bundle": "ADR-051", "outcome": "merges into proposed ADR-044", "record": "ADR-044"},
+      {"bundle": "ADR-052", "outcome": "implementation specification under ADR-010; Librarian not created", "record": "ADR-042 item 9"},
+      {"bundle": "ADR-053", "outcome": "merges into proposed ADR-046; simulation limit already ADR-037", "record": "ADR-046"},
+      {"bundle": "ADR-054", "outcome": "genuinely new", "record": "ADR-049"},
+      {"bundle": "ADR-055", "outcome": "genuinely new", "record": "ADR-050"},
+      {"bundle": "ADR-056", "outcome": "genuinely new", "record": "ADR-051"}
+    ],
+    "conflicts": [
+      "Bundle ADR-040 would overwrite Accepted ADR-040",
+      "Bundle ADR-043 absolute lateral ban would amend ADR-029",
+      "Bundle ADR-042 Information and Knowledge Management or Historian as creator would amend ADR-015",
+      "Bundle ADR-052 Librarian would create an institution outside ADR-015",
+      "Bundle ADR-047 dormant replacement would amend ADR-015 if activation skips membership or manufactures quorum",
+      "Bundle ADR-048 would amend ADR-005 if Historian attestation restores",
+      "Bundle ADR-049 fault vocabulary competes with ADR-036, ADR-039, and ADR-011",
+      "Bundle ADR-054 ungoverned replication would contradict ADR-020; cross-deployment restore would contradict ADR-028. Proposed ADR-049 does not adopt those readings",
+      "Bundle ADR-055 cloud recovery that accepts compromised-host instructions would contradict ADR-028, ADR-021, and ADR-033. Proposed ADR-050 does not adopt that reading",
+      "Bundle ADR-056 gateway-as-authorizer would contradict ADR-002. Four domains as four FORGE deployments would contradict ADR-028. Proposed ADR-051 does not adopt those readings"
+    ],
+    "new_human_decisions": ["HD-049", "HD-050", "HD-051", "HD-B040", "HD-B041", "HD-B042", "HD-B043", "HD-B044", "HD-B045", "HD-B046", "HD-B047", "HD-B048", "HD-B049", "HD-B050", "HD-B051", "HD-B052", "HD-B053", "HD-B054", "HD-B055", "HD-B056"],
+    "pull_request_url": null
   }
 }
