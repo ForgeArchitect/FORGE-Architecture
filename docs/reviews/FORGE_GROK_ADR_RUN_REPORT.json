@@ -221,6 +221,7 @@
       "Bundle ADR-056 gateway-as-authorizer would contradict ADR-002. Four domains as four FORGE deployments would contradict ADR-028. Proposed ADR-051 does not adopt those readings"
     ],
     "new_human_decisions": ["HD-049", "HD-050", "HD-051", "HD-B040", "HD-B041", "HD-B042", "HD-B043", "HD-B044", "HD-B045", "HD-B046", "HD-B047", "HD-B048", "HD-B049", "HD-B050", "HD-B051", "HD-B052", "HD-B053", "HD-B054", "HD-B055", "HD-B056"],
-    "pull_request_url": null
+    "reconciliation_commit": "362edb503c5c7b1e557b436a696c639ac23bc252",
+    "pull_request_url": "https://github.com/ForgeArchitect/FORGE-Architecture/pull/3"
   }
 }
